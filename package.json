@@ -1,0 +1,30 @@
+{
+  "name": "chefs-finder",
+  "version": "1.0.0",
+  "description": "Web App to find A chef nearby ",
+  "main": "index.js",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YasserKassem989979/Chefs-Finder.git"
+  },
+  "author": "access-denied",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YasserKassem989979/Chefs-Finder/issues"
+  },
+  "homepage": "https://github.com/YasserKassem989979/Chefs-Finder#readme",
+  "devDependencies": {
+    "express": "^4.16.4",
+    "sequelize": "^5.8.6"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "body-parser": "^1.19.0",
+    "mysql2": "^1.6.5",
+    "nodemon": "^1.19.0",
+    "pg": "^7.11.0"
+  }
+}
