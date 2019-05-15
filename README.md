@@ -6,4 +6,4 @@ Product Manger:Amer
 #
 Scrum Master:Yasser
 #
-developers: Oday, Shreef
+developers: Oday, Shareef
