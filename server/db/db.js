@@ -13,3 +13,5 @@ const User = sequelize.define("user", {
   username: { type: Sequelize.STRING, required: true, unique: true },
   password: { type: Sequelize.STRING, required: true }
 });
+
+//shareef
