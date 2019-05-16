@@ -18,7 +18,8 @@ const Chef = sequelize.define("chef", {
   location: { type: Sequelize.STRING, required: true },
   phoneNumber: { type: Sequelize.INTEGER, required: true, unique: true },
   description: { type: Sequelize.STRING },
-  rating: { type: Sequelize.INTEGER }
+  rating: { type: Sequelize.INTEGER },
+  imgUrl: { type: Sequelize.STRING }
 });
 
 const User = sequelize.define("user", {
@@ -30,6 +31,7 @@ const User = sequelize.define("user", {
 
 const Meal = sequelize.define("meal", {
   id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+  name: { type: Sequelize.STRING, required: true },
   description: { type: Sequelize.STRING }
 });
 
