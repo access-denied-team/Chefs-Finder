@@ -1,7 +1,7 @@
 const app = angular.module('main', ['ngRoute']);
 
-app.config(function($routeProvider){
-    $routeProvider
+app.config(function($route){
+    $route
     .when('/', {
         templateUrl: 'index.html'
     }).otherWise({
