@@ -3,11 +3,8 @@ const Sequelize = require("sequelize");
 // creates new connection
 const sequelize = new Sequelize("chefinder", "root", "1111", {
   host: "localhost",
-  dialect: "mysql"
-});
-// yasser ma b3raf
-sequelize.sync({ force: true, logging: true }).then(() => {
-  console.log("databases created");
+  dialect: "mysql",
+  port: 8080
 });
 
 // new schemas
@@ -42,6 +39,9 @@ Meal.belongsToMany(Chef, {
   through: "cookTable"
 });
 
+sequelize.sync({ force: false, logging: false }).then(() => {
+  console.log("databases created");
+});
+
+
 module.exports.User = User;
-module.exports.Meal = Meal;
-module.exports.Chef = Chef;
