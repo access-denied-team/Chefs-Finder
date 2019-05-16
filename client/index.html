@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang = "en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="../node_modules/angular/angular.js"></script>
+    <meta charset = "UTF-8" />
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
+    <meta http-equiv = "X-UA-Compatible" content = "ie=edge" />
+    <script src = "../node_modules/angular/angular.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src = "anglar-route.js"></script>
     <title>Etbo5li</title>
   </head>
-  <body ng-app="main">
-    <div id = "loginForm">
+  <body ng-app = "main">
+    <div class = "login" ng-view>
       <h2>login</h2>
-      <div class ="login">
-        <input type = "text" ng-model="username" placeholder="Username"/>
-        <input type = "password" ng-model="password" placeholder="Password"/>
+      <div class = "login" ng-controller = "loginCtrl">
+        <form action = "/" id = "myLogin">
+          <input type = "text" ng-model = "username" placeholder = "Username"/>
+          <input type = "password" ng-model = "password" placeholder = "Password"/>
+        </form>
       </div>
-      <div class="login">
-        <button ng-click="login()">Login</button>
-        <button ng-click="signup()">Signup</button>
+      <div class = "login">
+        <button ng-click = "login()">Login</button>
+        <!-- <button ng-click="signup()">Signup</button> -->
       </div>
     </div>
-    <script src="./src/app.js"></script>
+    <script src = "./src/app.js"></script>
   </body>
 </html>
