@@ -1,12 +1,10 @@
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize("chefinder", "root", "1111", {
   host: "localhost",
-  dialect: "mysql"
+  dialect: "mysql",
+  port: 8080
 });
 
-sequelize.sync({ force: false, logging: false }).then(() => {
-  console.log("databases created");
-});
 
 const User = sequelize.define("user", {
   id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
@@ -14,5 +12,9 @@ const User = sequelize.define("user", {
   password: { type: Sequelize.STRING, required: true }
 });
 
-//shareef
-//oday3
+sequelize.sync({ force: false, logging: false }).then(() => {
+  console.log("databases created");
+});
+
+
+module.exports.User = User;
