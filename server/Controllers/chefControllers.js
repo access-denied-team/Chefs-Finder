@@ -12,7 +12,7 @@ exports.retrieveOneChef = function(req, res) {};
 // gets the chefs with specific location
 exports.retrieveByLocation = function(req, res) {};
 
-// updates the ratings for the cheif
+// updates Information for the cheif
 exports.updateOne = function(req, res) {};
 
 ///////////////////////////////////////////////////
@@ -23,4 +23,4 @@ exports.deleteMeal = function(req, res) {};
 
 // if the chef decides to delete his account
 // for extra time
-exports.deleteOne = function(req, res) {};
+exports.deleteOneChef = function(req, res) {};
