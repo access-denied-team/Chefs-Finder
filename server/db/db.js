@@ -4,12 +4,20 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize("chefinder", "root", "1111", {
   host: "localhost",
   dialect: "mysql",
-  port: 8080
+  port: 3030 
 });
+
+// sequelize.sync({ force: true, logging: true }).then(() => {
+//   console.log("databases created");
+// });
+
+ sequelize.authenticate()
+ .then(() => console.log('Db Connected'))
+ .catch(err => console.log('Error: ' + err)) // this is the same as sync but alot of people are using it instead of sync
 
 // new schemas
 const Chef = sequelize.define("chef", {
-  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
+  id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true }, // we can also use serial for id tpye, its basically an int that will auto increment
   username: { type: Sequelize.STRING, required: true, unique: true },
   password: { type: Sequelize.STRING, required: true },
   location: { type: Sequelize.STRING, required: true },
@@ -38,10 +46,5 @@ Chef.belongsToMany(Meal, {
 Meal.belongsToMany(Chef, {
   through: "cookTable"
 });
-
-sequelize.sync({ force: false, logging: false }).then(() => {
-  console.log("databases created");
-});
-
 
 module.exports.User = User;
