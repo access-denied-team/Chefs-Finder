@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const router= require("./router")
+const Router= require("./router")
+const db= require("./db/db")
 
 //express app
 const app = express();
@@ -10,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //router
-app.use("/",router)
+app.use("/",Router.router)
 
 
 app.get("/",(req,res) =>{
