@@ -28,7 +28,7 @@ router.route("/:username")
     chefControllers.deleteOneChef(req,res)
 })
 
-router.route("/:location").get((req,res) => {
+router.route("/location/:location").get((req,res) => {
     chefControllers.retrieveByLocation(req,res)
 })
 

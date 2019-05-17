@@ -5,10 +5,7 @@ const sequelize = new Sequelize("chefinder", "root", "1111", {
   host: "localhost",
   dialect: "mysql"
 });
-// yasser ma b3raf
-sequelize.sync({ force: true, logging: true }).then(() => {
-  console.log("databases created");
-});
+
 
 // new schemas
 const Chef = sequelize.define("chef", {
@@ -36,10 +33,10 @@ const Meal = sequelize.define("meal", {
 });
 
 Chef.belongsToMany(Meal, {
-  through: "Chef-Meal"
+  through: "ChefMeal"
 });
 Meal.belongsToMany(Chef, {
-  through: "Chef-Meal"
+  through: "ChefMeal"
 });
 
 module.exports.User = User;
