@@ -1,6 +1,7 @@
 const express = require("express");
 const exphbs = require("express-handlebars"); 
 const { HTTP_UNAUTHORIZED } = require('../constants.js');
+const bcrypt = require('bcrypt-nodejs')
 const { Chef } = require('../server/db/db.js');
 const bodyParser = express.json();
 const path = require('path');
@@ -21,8 +22,17 @@ app.post('/login', function(req, res){
 
   Chef.findOne({where: { username: username }}).then(function(chef){
     if(!chef) {
-      res.status(HTTP_UNAUTHORIZED).send('Username or Password Incorrect')
+      res.status(HTTP_UNAUTHORIZED).send('Username Incorrect')
     }
+    const exsistingPassword = chef.password;
+    bcrypt.compare(exsistingPassword, password).then((matching) => {
+      if(matching){
+        console.log('LoggedIn')
+        return res.send('/');  
+      }else{
+       return res.status(HTTP_UNAUTHORIZED).send('Password Incorrect')
+      }
+    })
   })
 })
 
