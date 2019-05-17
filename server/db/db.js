@@ -41,10 +41,10 @@ const Meal = sequelize.define("meal", {
 });
 
 Chef.belongsToMany(Meal, {
-  through: "cookTable"
+  through: "Chef-Meal"
 });
 Meal.belongsToMany(Chef, {
-  through: "cookTable"
+  through: "Chef-Meal"
 });
 
 module.exports.User = User;
