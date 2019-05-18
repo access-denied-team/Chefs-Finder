@@ -99,10 +99,8 @@ exports.deleteMeal = function(req, res) {
 	db.Chef.findAll({
         where:{username:req.params.username}
     }).then(chef =>{
-        chef[0].removeMeal({
-		where:{	name:req.body.name}
-		}).then(meal => {
-			res.send("done")
+		db.Meal.destroy({where:{name:req.body.name,Chef_mealID:chef[0].id}}).then(meal =>{
+				res.send("deleted")
 		})
     }).catch(err =>{
         console.log(err)
