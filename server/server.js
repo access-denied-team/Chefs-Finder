@@ -10,7 +10,7 @@ const secret = require('../secret.js')
 //express app
 const app = express();
 const port = process.env.PORT || 3030;
-app.use(bodyParser);
+
 
 //authentication function
 const authenticate = function(req, res, next){
