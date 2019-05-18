@@ -22,11 +22,9 @@
   },
   "dependencies": {
     "angular": "^1.7.8",
-<<<<<<< HEAD
+
     "bcrypt": "^3.0.6",
-=======
-    "bcrypt-nodejs": "0.0.3",
->>>>>>> 3cc8445345c844185ef379899715c7ad950da4a2
+
     "body-parser": "^1.19.0",
     "express-handlebars": "^3.1.0",
     "mysql": "^2.17.1",

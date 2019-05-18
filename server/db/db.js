@@ -7,9 +7,7 @@ const sequelize = new Sequelize("chefinder", "root", "1111", {
   dialect: "mysql"
 });
 
-// sequelize.sync({ force: true, logging: true }).then(() => {
-//   console.log("databases created");
-// });
+
 
  sequelize.authenticate()
  .then(() => console.log('Db Connected'))
