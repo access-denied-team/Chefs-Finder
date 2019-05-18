@@ -22,7 +22,11 @@
   },
   "dependencies": {
     "angular": "^1.7.8",
+<<<<<<< HEAD
     "bcrypt": "^3.0.6",
+=======
+    "bcrypt-nodejs": "0.0.3",
+>>>>>>> 251b1f65956bb2b3580d1a97bba17f5fc6474221
     "body-parser": "^1.19.0",
     "express-handlebars": "^3.1.0",
     "jsonwebtoken": "^8.5.1",

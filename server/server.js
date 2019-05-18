@@ -1,14 +1,16 @@
 const express = require("express");
-const { HTTP_UNAUTHORIZED, HTTP_SERVER_ERROR } = require('../constants.js');
 const jwt = require('jsonwebtoken');
-const bcrypt = require('bcrypt')
 const bodyParser = require("body-parser");
-const Router= require("./router")
-const db = require("./db/db")
+const Router= require("./router");
+const bcrypt = require('../node_modules/bcrypt-nodejs');
+const { HTTP_UNAUTHORIZED, HTTP_SERVER_ERROR } = require('../constants.js')
+const db = require("./db/db");
+const secret = require('../secret.js')
 
 //express app
 const app = express();
-const port =  3000; // env
+const port = process.env.PORT || 3030;
+app.use(bodyParser);
 
 //authentication function
 const authenticate = function(req, res, next){
@@ -32,9 +34,6 @@ const authenticate = function(req, res, next){
     })
   })
 }
-
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('Testing')
