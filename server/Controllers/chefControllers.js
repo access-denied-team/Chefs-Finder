@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 // creates new chef
 
 exports.createChef = function(req, res) {
-
+console.log("hii");
     //hashing the password
     const saltRounds= 10;
     const uncryptPass = req.body.password
@@ -116,3 +116,16 @@ exports.deleteOneChef = function(req, res) { //done
 		res.send('deleted chef successfully')
 	})
 };
+
+ exports.retrievemeals= function(req,res){ // retriev all meals of specific user
+	db.Chef.findAll({
+        where:{username:req.params.username}
+    }).then(chef =>{
+        chef[0].getMeals().then(meals => {
+			res.send(meals)
+		})
+    }).catch(err =>{
+        console.log(err)
+    })
+
+ }
