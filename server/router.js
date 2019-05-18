@@ -28,7 +28,7 @@ router.route("/:username")
     chefControllers.deleteOneChef(req,res)
 })
 
-router.route("/:location").get((req,res) => {
+router.route("/location/:location").get((req,res) => {
     chefControllers.retrieveByLocation(req,res)
 })
 
@@ -38,7 +38,10 @@ router.route("/:username/meal").post((req,res)=>{
 }).delete((req,res)=>{
     chefControllers.deleteMeal(req,res)
 })
-
+router.route("/:username/meal")// retriev all meals of specific user
+.get((req,res) => {
+    chefControllers.retrievemeals(req,res)
+})
 
 
 

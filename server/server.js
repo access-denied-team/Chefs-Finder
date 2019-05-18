@@ -6,9 +6,10 @@ const db= require("./db/db")
 
 //express app
 const app = express();
-const port = process.env.PORT || 3030;
+const port =  3000; // env
 
-app.use(bodyParser);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('Testing')
@@ -22,11 +23,11 @@ app.post('/login', function(req, res){
     if(!chef) {
       res.status(HTTP_UNAUTHORIZED).send('Username Incorrect')
     }
-    const exsistingPassword = chef.password;
-    bcrypt.compare(exsistingPassword, password).then((matching) => {
+    const currentPass = chef.password;
+    bcrypt.compare(password, currentPass).then((matching) => {
       if(matching){
         console.log('LoggedIn')
-        return res.send('/');  
+        return res.redirect('/');  
       }else{
        return res.status(HTTP_UNAUTHORIZED).send('Password Incorrect')
       }

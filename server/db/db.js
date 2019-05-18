@@ -1,15 +1,12 @@
 const Sequelize = require("sequelize");
 
 // creates new connection
-const sequelize = new Sequelize("chefinder", "root", "1111", {
+const sequelize = new Sequelize("test", "root", "1111", {
   host: "localhost",
-  dialect: "mysql",
- // port: 3030 
+
+  dialect: "mysql"
 });
 
- sequelize.sync({ force: true, logging: true }).then(() => {
-  console.log("databases created");
- });
 
  sequelize.authenticate()
  .then(() => console.log('Db Connected'))
@@ -37,14 +34,18 @@ const User = sequelize.define("user", {
 const Meal = sequelize.define("meal", {
   id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
   name: { type: Sequelize.STRING, required: true },
-  description: { type: Sequelize.STRING }
+  description: { type: Sequelize.STRING },
 });
 
-Chef.belongsToMany(Meal, {
-  through: "Chef-Meal"
+Chef.hasMany(Meal, {
+  foreignKey: 'Chef_mealID'
 });
-Meal.belongsToMany(Chef, {
-  through: "Chef-Meal"
+Meal.belongsTo(Chef, {
+  foreignKey: 'Chef_mealID'
 });
+
+sequelize.sync()
 
 module.exports.User = User;
+module.exports.Meal = Meal;
+module.exports.Chef = Chef;
