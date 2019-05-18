@@ -9,8 +9,12 @@ const secret = require('../secret.js')
 
 //express app
 const app = express();
+<<<<<<< HEAD
+const port =  3001; // env
+=======
 const port = process.env.PORT || 3030;
 app.use(bodyParser);
+>>>>>>> 5fa770287e444909370daefb9e6c4e2a56a361df
 
 //authentication function
 const authenticate = function(req, res, next){
