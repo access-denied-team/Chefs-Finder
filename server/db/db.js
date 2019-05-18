@@ -4,7 +4,6 @@ const Sequelize = require("sequelize");
 const sequelize = new Sequelize("chefinder", "root", "1111", {
   host: "localhost",
   dialect: "mysql",
-  port: 3030 
 });
 
 // sequelize.sync({ force: true, logging: true }).then(() => {
