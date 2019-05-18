@@ -8,7 +8,8 @@ const db= require("./db/db")
 const app = express();
 const port =  3000; // env
 
-app.use(bodyParser);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.get('/', (req, res) => {
   res.send('Testing')

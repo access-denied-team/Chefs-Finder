@@ -82,17 +82,31 @@ exports.updateOne = function(req, res) {  //done
 //mealsControllers
 
 exports.createMeal = function(req, res) {
-    db.Meal.create({
-        name:req.body.name,
-        description:req.body.description
-    },{where:{username:req.params.username}}).the
+	db.Chef.findAll({
+        where:{username:req.params.username}
+    }).then(chef =>{
+        chef[0].createMeal({
+			name:req.body.name,
+			description:req.body.description
+		}).then(meal => {
+			res.send(meal)
+		})
+    }).catch(err =>{
+        console.log(err)
+    })
 };
 exports.deleteMeal = function(req, res) {
-	db.Meal.destroy({
-		where:{name:req.params.username}
-	}).then(()=>{
-		res.send('deleted meal successfully')
-	})
+	db.Chef.findAll({
+        where:{username:req.params.username}
+    }).then(chef =>{
+        chef[0].removeMeal({
+		where:{	name:req.body.name}
+		}).then(meal => {
+			res.send("done")
+		})
+    }).catch(err =>{
+        console.log(err)
+    })
 };
 
 // if the chef decides to delete his account
