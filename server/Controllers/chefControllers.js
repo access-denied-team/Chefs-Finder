@@ -82,6 +82,7 @@ exports.updateOne = function(req, res) {  //done
 //mealsControllers
 
 exports.createMeal = function(req, res) {
+	console.log(req.params.username)
 	db.Chef.findAll({
         where:{username:req.params.username}
     }).then(chef =>{
@@ -96,10 +97,11 @@ exports.createMeal = function(req, res) {
     })
 };
 exports.deleteMeal = function(req, res) {
+	
 	db.Chef.findAll({
         where:{username:req.params.username}
     }).then(chef =>{
-		db.Meal.destroy({where:{name:req.body.name,Chef_mealID:chef[0].id}}).then(meal =>{
+		db.Meal.destroy({where:{name:req.body.name,chefId:chef[0].id}}).then(meal =>{
 				res.send("deleted")
 		})
     }).catch(err =>{

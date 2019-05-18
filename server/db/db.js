@@ -35,12 +35,8 @@ const Meal = sequelize.define("meal", {
   description: { type: Sequelize.STRING }
 });
 
-Chef.belongsToMany(Meal, {
-  through: "Chef-Meal"
-});
-Meal.belongsToMany(Chef, {
-  through: "Chef-Meal"
-});
+Chef.hasMany(Meal);
+Meal.belongsTo(Chef);
 
 sequelize.sync();
 
