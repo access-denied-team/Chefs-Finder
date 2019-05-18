@@ -47,9 +47,6 @@ Meal.belongsToMany(Chef, {
   through: "Chef-Meal"
 });
 
-<<<<<<< HEAD
-// sequelize.sync()
-
-=======
->>>>>>> 5fa770287e444909370daefb9e6c4e2a56a361df
 module.exports.User = User;
+module.exports.Chef = Chef;
+module.exports.Meal = Meal;
