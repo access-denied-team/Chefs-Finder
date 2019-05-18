@@ -18,7 +18,7 @@ app.post('/login', function(req, res){
   var username = req.params.username;
   var password = req.params.password;
 
-  Chef.findOne({where: { username: username }}).then(function(chef){
+  db.Chef.findOne({where: { username: username }}).then(function(chef){
     if(!chef) {
       res.status(HTTP_UNAUTHORIZED).send('Username Incorrect')
     }
