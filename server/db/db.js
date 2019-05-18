@@ -44,7 +44,7 @@ Meal.belongsTo(Chef, {
   foreignKey: 'Chef_mealID'
 });
 
-sequelize.sync()
+// sequelize.sync()
 
 module.exports.User = User;
 module.exports.Meal = Meal;
