@@ -82,10 +82,17 @@ exports.updateOne = function(req, res) {  //done
 //mealsControllers
 
 exports.createMeal = function(req, res) {
-    db.Meal.create({
-        name:req.body.name,
-        description:req.body.description
-    },{where:{username:req.params.username}}).the
+	console.log("hi")
+	db.Chef.findAll({
+        where:{username:req.params.username}
+    }).then(chef =>{
+        chef[0].createMeal({
+			name:req.body.name,
+			description:req.body.description
+		})
+    }).catch(err =>{
+        console.log(err)
+    })
 };
 exports.deleteMeal = function(req, res) {
 	db.Meal.destroy({
