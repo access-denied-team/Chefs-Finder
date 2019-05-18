@@ -102,7 +102,7 @@ exports.deleteMeal = function(req, res) {
         chef[0].removeMeal({
 		where:{	name:req.body.name}
 		}).then(meal => {
-			res.send(meal)
+			res.send("done")
 		})
     }).catch(err =>{
         console.log(err)
