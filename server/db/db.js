@@ -3,13 +3,11 @@ const Sequelize = require("sequelize");
 // creates new connection
 const sequelize = new Sequelize("chefinder", "root", "1111", {
   host: "localhost",
-  dialect: "mysql",
-  port: 3030 
+
+  dialect: "mysql"
 });
 
-// sequelize.sync({ force: true, logging: true }).then(() => {
-//   console.log("databases created");
-// });
+
 
  sequelize.authenticate()
  .then(() => console.log('Db Connected'))
@@ -41,10 +39,12 @@ const Meal = sequelize.define("meal", {
 });
 
 Chef.belongsToMany(Meal, {
-  through: "Chef-Meal"
+  through: "ChefMeal"
 });
 Meal.belongsToMany(Chef, {
-  through: "Chef-Meal"
+  through: "ChefMeal"
 });
 
 module.exports.User = User;
+module.exports.Meal = Meal;
+module.exports.Chef = Chef;

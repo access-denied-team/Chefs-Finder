@@ -1,10 +1,20 @@
 const db = require("../db/db.js");
+const bcrypt = require('bcrypt');
 
 // creates new chef
-exports.createChef = function(req, res) { //done
+
+exports.createChef = function(req, res) {
+
+    //hashing the password
+    const saltRounds= 10;
+    const uncryptPass = req.body.password
+    const hash =bcrypt.hashSync(uncryptPass, saltRounds)
+
+    // create chef
+
 	db.Chef.create({
 		username:req.body.username,
-		password:req.body.password,
+		password:hash,
 		location:req.body.location,
 		phoneNumber:req.body.phoneNumber,
 		description:req.body.description,
@@ -12,28 +22,44 @@ exports.createChef = function(req, res) { //done
 		imgUrl:req.body.imgUrl
 	}).then(chef =>{
 		res.send(chef)
-	})
+	}).catch(err =>{
+        console.log("Error is" , err)
+    })
 };
 
 // gets the data for all the chefs
-exports.retrieveAllChefs = function(req, res) { //done
-	db.Chef.findAll().then(chef =>{
-		res.send(chef)
-	})
+
+exports.retrieveAllChefs = function(req, res) {
+	db.Chef.findAll().then(chefs =>{
+		res.send(chefs)
+	}).catch(err =>{
+        console.log(err)
+    })
 };
 
 // gets data for one chef
-exports.retrieveOneChef = function(req, res) { //done
-	db.Chef.findAll({
-		where:{username:req.params.username}
-	}).then(chef =>{
-		res.send(chef)
-	})
+exports.retrieveOneChef = function(req, res) {
+    db.Chef.findAll({
+        where:{username:req.params.username}
+    }).then(chef =>{
+        res.send(chef)
+    }).catch(err =>{
+        console.log(err)
+    })
+	
 
 };
 
 // gets the chefs with specific location
-exports.retrieveByLocation = function(req, res) {};
+exports.retrieveByLocation = function(req, res) {
+    db.Chef.findAll({
+        where:{location:req.params.location}
+    }).then(chef=>{
+        res.send(chef)
+    }).catch(err =>{
+        console.log(err)
+    })
+};
 
 // updates Information for the cheif
 exports.updateOne = function(req, res) {  //done
@@ -47,13 +73,20 @@ exports.updateOne = function(req, res) {  //done
 		imgUrl:req.body.imgUrl},{where:{username:req.params.username}}
 		).then(()=>{
 			res.send("updated successfully for this chef")
-		})
+		}).catch(err =>{
+            console.log(err)
+        })
 };
 
 ///////////////////////////////////////////////////
 //mealsControllers
 
-exports.createMeal = function(req, res) {};
+exports.createMeal = function(req, res) {
+    db.Meal.create({
+        name:req.body.name,
+        description:req.body.description
+    },{where:{username:req.params.username}}).the
+};
 exports.deleteMeal = function(req, res) {
 	db.Meal.destroy({
 		where:{name:req.params.username}

@@ -6,7 +6,7 @@ const db= require("./db/db")
 
 //express app
 const app = express();
-const port = process.env.PORT || 3030;
+const port =  3000; // env
 
 app.use(bodyParser);
 
@@ -18,15 +18,15 @@ app.post('/login', function(req, res){
   var username = req.params.username;
   var password = req.params.password;
 
-  Chef.findOne({where: { username: username }}).then(function(chef){
+  db.Chef.findOne({where: { username: username }}).then(function(chef){
     if(!chef) {
       res.status(HTTP_UNAUTHORIZED).send('Username Incorrect')
     }
-    const exsistingPassword = chef.password;
-    bcrypt.compare(exsistingPassword, password).then((matching) => {
+    const currentPass = chef.password;
+    bcrypt.compare(password, currentPass).then((matching) => {
       if(matching){
         console.log('LoggedIn')
-        return res.send('/');  
+        return res.redirect('/');  
       }else{
        return res.status(HTTP_UNAUTHORIZED).send('Password Incorrect')
       }
