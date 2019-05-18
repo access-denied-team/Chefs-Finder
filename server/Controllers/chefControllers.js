@@ -2,6 +2,7 @@ const db = require("../db/db.js");
 const bcrypt = require('bcrypt');
 
 // creates new chef
+
 exports.createChef = function(req, res) {
 
     //hashing the password
@@ -10,6 +11,7 @@ exports.createChef = function(req, res) {
     const hash =bcrypt.hashSync(uncryptPass, saltRounds)
 
     // create chef
+
 	db.Chef.create({
 		username:req.body.username,
 		password:hash,
@@ -26,6 +28,7 @@ exports.createChef = function(req, res) {
 };
 
 // gets the data for all the chefs
+
 exports.retrieveAllChefs = function(req, res) {
 	db.Chef.findAll().then(chefs =>{
 		res.send(chefs)
@@ -44,6 +47,7 @@ exports.retrieveOneChef = function(req, res) {
         console.log(err)
     })
 	
+
 };
 
 // gets the chefs with specific location
@@ -58,7 +62,7 @@ exports.retrieveByLocation = function(req, res) {
 };
 
 // updates Information for the cheif
-exports.updateOne = function(req, res) {
+exports.updateOne = function(req, res) {  //done
 	db.Chef.update({
 		username:req.body.username,
 		password:req.body.password,
@@ -93,7 +97,7 @@ exports.deleteMeal = function(req, res) {
 
 // if the chef decides to delete his account
 // for extra time
-exports.deleteOneChef = function(req, res) {
+exports.deleteOneChef = function(req, res) { //done
 	db.Chef.destroy({
 		where:{username:req.params.username}
 	}).then(()=>{
