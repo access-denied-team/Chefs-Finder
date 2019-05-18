@@ -1,12 +1,37 @@
 const express = require("express");
-
+const { HTTP_UNAUTHORIZED, HTTP_SERVER_ERROR } = require('../constants.js');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt')
 const bodyParser = require("body-parser");
 const Router= require("./router")
-const db= require("./db/db")
+const db = require("./db/db")
 
 //express app
 const app = express();
 const port =  3000; // env
+
+//authentication function
+const authenticate = function(req, res, next){
+  const authToken = req.headers['authentication-token'];
+  if(!authToken){
+    return res.status(HTTP_UNAUTHORIZED).send('Username or Password Incorrect');
+  }
+  jwt.verify(authToken, secret, function(err, decodedToken){
+    if(err){
+      return res.status(HTTP_UNAUTHORIZED).send('Incoorect Username or Passowrd');
+    }
+    const username = decodeToken.username;
+    Chef.findOne({where: {username: username}}).then(function(chef){
+      if(!chef){
+        return res.status(HTTP_UNAUTHORIZED).send('Please sign up')
+      }
+      req.body.chef = chef;
+      return next();
+    }).catch(function(err){
+      return res.status(HTTP_SERVER_ERROR).sed(err);
+    })
+  })
+}
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
