@@ -6,10 +6,6 @@ const sequelize = new Sequelize("test", "root", "1111", {
   dialect: "mysql",
 });
 
-// sequelize.sync({ force: true, logging: true }).then(() => {
-//   console.log("databases created");
-// });
-
  sequelize.authenticate()
  .then(() => console.log('Db Connected'))
  .catch(err => console.log('Error: ' + err)) // this is the same as sync but alot of people are using it instead of sync
@@ -45,6 +41,8 @@ Chef.belongsToMany(Meal, {
 Meal.belongsToMany(Chef, {
   through: "Chef-Meal"
 });
+
+sequelize.sync();
 
 module.exports.User = User;
 module.exports.Chef = Chef;
