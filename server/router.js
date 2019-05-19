@@ -8,11 +8,6 @@ router.route("/signup").post((req,res)=>{
 })
 
 
-router.route("/login").post((req,res)=>{
-    
-})
-
-
 router.route("/all").get((req,res)=>{
     chefControllers.retrieveAllChefs(req,res)
 })
