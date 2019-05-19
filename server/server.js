@@ -10,6 +10,15 @@ const secret = require('../secret.js')
 //express app
 const app = express();
 const port = process.env.PORT || 3030;
+////////////////////////////////////////////////////////
+app.use(express.static("../frontend"));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+////////////////////////////////////////////////
 
 
 //authentication function
@@ -36,7 +45,7 @@ const authenticate = function(req, res, next){
 }
 
 app.get('/', (req, res) => {
-  res.send('Testing')
+  res.send('index.html')
 });
  
 app.post('/login', function(req, res){
