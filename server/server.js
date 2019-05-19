@@ -6,10 +6,12 @@ const Router= require("./router");
 const { HTTP_UNAUTHORIZED, HTTP_SERVER_ERROR } = require('../constants.js')
 const db = require("./db/db");
 const secret = require('../secret.js')
+const bcrypt = require("bcrypt")
 
 //express app
 const app = express();
 const port = process.env.PORT || 3030;
+
 ////////////////////////////////////////////////////////
 app.use(express.static("../frontend"));
 app.use(function(req, res, next) {
@@ -18,7 +20,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-////////////////////////////////////////////////
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 
 //authentication function
@@ -45,16 +51,18 @@ const authenticate = function(req, res, next){
 }
 
 app.get('/', (req, res) => {
+
   res.send('index.html')
+
 });
  
 app.post('/login', function(req, res){
-  var username = req.params.username;
-  var password = req.params.password;
+  var username = req.body.username;
+  var password = req.body.password;
 
   db.Chef.findOne({where: { username: username }}).then(function(chef){
     if(!chef) {
-      res.status(HTTP_UNAUTHORIZED).send('Username Incorrect')
+     return  res.status(HTTP_UNAUTHORIZED).send('Username Incorrect')
     }
     const currentPass = chef.password;
     bcrypt.compare(password, currentPass).then((matching) => {
@@ -68,8 +76,7 @@ app.post('/login', function(req, res){
   })
 })
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //router
 app.use("/",Router.router)
