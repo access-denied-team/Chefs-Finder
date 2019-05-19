@@ -11,7 +11,7 @@ console.log("hii");
     const hash =bcrypt.hashSync(uncryptPass, saltRounds)
 
     // create chef
-
+    console.log('sasasasasasas')
 	db.Chef.create({
 		username:req.body.username,
 		password:hash,
