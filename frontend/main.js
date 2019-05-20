@@ -11,12 +11,28 @@ app.controller("myCtr",['$scope',function($scope){
 	}
 }]);
 
-app.controller("signup",['$scope',function($scope){
+app.controller("signup",function($scope,$http){
 	$scope.signup=function(){
 
 		window.location.href = 'signup.html';
 	}
-}])
+	$scope.login=function(){
+		console.log("hello oday")
+		$http({
+			method:'post',
+			url:'/login',
+			data:JSON.stringify({
+				username:$scope.username1,
+				password:$scope.password1
+			}),
+		headers: {'Content-Type': "application/json; charset = utf-8"}
+		}).then(function(response){
+			alert('hello correct')
+		}).catch(function(){
+			console.log('big error')
+		})
+	}
+})
 
 app.controller('Regester',function($scope,$http){
 	$scope.Regester = function(){
@@ -51,8 +67,12 @@ app.controller('Regester',function($scope,$http){
 // },function(error){
 // 		console.log('errrrrrrrrrrrrrrrrrrrrrr')
 // 	})
-
-
-
 	}
 })
+
+// app.controller("signup",['$scope',function($scope){
+// 	$scope.signup=function(){
+
+// 		window.location.href = 'signup.html';
+// 	}
+// }])
