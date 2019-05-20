@@ -1,9 +1,9 @@
 const Sequelize = require("sequelize");
 
 // creates new connection
-const sequelize = new Sequelize("test", "root", "1111", {
+const sequelize = new Sequelize("CHEFINDER", "root", "b5k126d7", {
   host: "localhost",
-  dialect: "mysql",
+  dialect: "mysql"
 });
 
  sequelize.authenticate()
