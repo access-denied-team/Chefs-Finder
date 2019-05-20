@@ -1,5 +1,3 @@
-import { Http2SecureServer } from "http2";
-
 var app = angular.module("myApp",[]);
 app.controller("myCtr",['$scope',function($scope){
 	$scope.clickme=function(){
