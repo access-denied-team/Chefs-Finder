@@ -1,13 +1,13 @@
+import { Http2SecureServer } from "http2";
+
 var app = angular.module("myApp",[]);
 app.controller("myCtr",['$scope',function($scope){
 	$scope.clickme=function(){
 		// $scope.updatname = name;
 		// $scope.updatdesc = desc;
 		// $location.path('login.html');
-		 
 		 // window.location.href = 'https://www.facebook.com';
 		  window.location.href = 'login.html';
-
 	}
 }]);
 
@@ -42,7 +42,6 @@ app.controller('Regester',function($scope,$http){
 			console.log('erooooor')
 		})
 
-
 // 	$http({
 // 		method:'GET',
 // 		url:'/all'
@@ -51,8 +50,19 @@ app.controller('Regester',function($scope,$http){
 // },function(error){
 // 		console.log('errrrrrrrrrrrrrrrrrrrrrr')
 // 	})
+	}
+})
 
-
-
+app.controller('location', function($scope, $http){
+	$scope.location = function(){
+		$http({
+			method: 'GET', 
+			url: '/location/ ' + $scope.location,
+			headers: {'Content-Type': "application/json; charset = utf-8"},
+		}).then(function(res){
+			res.send(res.data)
+		}).catch(function(err){
+			console.log('err:', err);
+		});
 	}
 })
