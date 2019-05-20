@@ -6,7 +6,6 @@ app.controller("myCtr",['$scope',function($scope){
 		// $location.path('login.html');
 		 
 		 // window.location.href = 'https://www.facebook.com';
-
 		  window.location.href = 'login.html';
 
 	}
@@ -21,7 +20,6 @@ app.controller("signup",['$scope',function($scope){
 
 app.controller('Regester',function($scope,$http){
 	$scope.Regester = function(){
-		alert('tl7as')
 		console.log($scope.username)
 		$http({
 			method:'post',
@@ -36,11 +34,25 @@ app.controller('Regester',function($scope,$http){
 				imgUrl:$scope.imgUrl
 			}),
 		headers: {'Content-Type': "application/json; charset = utf-8"}
-		}).then(function(data){
-			console.log(data.username)
-			return data;
+		}).then(function(response){
+			console.log(response.data)
+			window.location.href = 'login.html';
+			return 
 		}).catch(function(){
-			console.log('errooooor')
+			console.log('erooooor')
 		})
+
+
+// 	$http({
+// 		method:'GET',
+// 		url:'/all'
+// 	}).then(function(response){
+// 		console.log(response.data)	
+// },function(error){
+// 		console.log('errrrrrrrrrrrrrrrrrrrrrr')
+// 	})
+
+
+
 	}
 })
