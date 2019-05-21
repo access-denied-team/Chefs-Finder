@@ -14,11 +14,19 @@
     template:"{{data[0].username}}",
     controller:"profile"
 })
+.when("/search", {
+  templateUrl: "client/search.html",
+  controller: "FilterLocation",
+})
 
  }]).controller("profile",function($scope, save) {
     $scope.data = save.myFuncget();
   })
- 
+
+.controller('FilterLocation', function($scope){
+  // function to filter req by location 
+})
+
  .controller("login",function($scope,save,$http,$location,$routeParams){
     
     $scope.login=function(){
