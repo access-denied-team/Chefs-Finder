@@ -5,11 +5,26 @@
 		<title>Page Title</title>
 	</head>
 	<body>
-		<div ng-controller="signup">
-			username: <input type="text" placeholder="username" ng-model ="username1">
-			password:<input type="password" placeholder="password" ng-model ="password1">
-			<button ng-click ="login()">login</button>
-			<p ng-click="signup()">youdont have an account click here to signup??</p>
+		<div ng-controller="signup" >
+			<div ng-hide="state">
+					username: <input type="text" placeholder="username" ng-model ="username1">
+					password:<input type="password" placeholder="password" ng-model ="password1">
+					<button ng-click ="login()">login</button>
+					<p ng-click="signup()">youdont have an account click here to signup??</p>
+			</div>
+			<div ng-show="state">
+					<img src="{{chefName.imgUrl}}" width="200" height="150">
+					<h1>Chef Name:{{chefName.username}}</h1>
+					<h2>Location:{{chefName.location}}</h2>
+					<h2>Phone Number:{{chefName.phoneNumber}}</h2>
+					<h2>Rating:{{chefName.rating}} / 10</h2>
+
+					<input type="text" placeholder="Enter Your New Meal" ng-model ="newmeal" >
+					<input type="text" placeholder="description" ng-model ="desc" >
+					<button ng-click="create()">Creat A New Meal</button>
+					<h5 ng-repeat="meal in chefMeal">Meal Name : {{meal.name + meal.description}}</h5>
+
+			</div>
 		</div>
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>

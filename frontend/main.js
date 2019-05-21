@@ -1,23 +1,40 @@
 var app = angular.module("myApp",[]);
+app.service('Data',function(){
+	function Data(){
+		console.log('Data')
+	}
+})
 app.controller("myCtr",['$scope',function($scope){
 	$scope.clickme=function(){
-		// $scope.updatname = name;
-		// $scope.updatdesc = desc;
-		// $location.path('login.html');
-		 
-		 // window.location.href = 'https://www.facebook.com';
 		  window.location.href = 'login.html';
-
 	}
 }]);
 
-app.controller("signup",function($scope,$http){
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.controller("signup",function($scope,$http,$rootScope,Data){
+	$scope.chefName = ""
+	$scope.chefMeal = []
+
 	$scope.signup=function(){
 
 		window.location.href = 'signup.html';
 	}
 	$scope.login=function(){
 		console.log("hello oday")
+		$scope.state = !$scope.state;
 		$http({
 			method:'post',
 			url:'/login',
@@ -27,9 +44,37 @@ app.controller("signup",function($scope,$http){
 			}),
 		headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
-			alert('hello correct')
+			console.log(response);
+			$scope.chefName=response.data[0];
+			console.log($scope.chefName);
+
+		}).then(function(){
+				$http({
+					method:'GET',
+					url:'/'+$scope.username1+"/meal"
+				}).then(function(response){
+					console.log(response.data)	
+					$scope.chefMeal = response.data
+					},function(error){
+					console.log('errrrrrrrrrrrrrrrrrrrrrr')
+				})
 		}).catch(function(){
-			console.log('big error')
+			window.location.href = 'profile.html';
+		})
+	}
+		$scope.create=function(){
+			$http({
+			method:'post',
+			url:'/'+$scope.username1+'/meal',
+			data:JSON.stringify({
+				name:$scope.newmeal,
+				description:$scope.desc
+			}),
+		headers: {'Content-Type': "application/json; charset = utf-8"}
+		}).then(function(response){
+			$scope.chefMeal.push(response.data);
+		}).catch(function(){
+			console.log("error in create meal")
 		})
 	}
 })
@@ -58,7 +103,6 @@ app.controller('Regester',function($scope,$http){
 			console.log('erooooor')
 		})
 
-
 // 	$http({
 // 		method:'GET',
 // 		url:'/all'
@@ -70,9 +114,17 @@ app.controller('Regester',function($scope,$http){
 	}
 })
 
-// app.controller("signup",['$scope',function($scope){
-// 	$scope.signup=function(){
+app.controller('location', function($scope, $http){
+	$scope.location = function(){
+		$http({
+			method: 'GET', 
+			url: '/location/ ' + $scope.location,
+			headers: {'Content-Type': "application/json; charset = utf-8"},
+		}).then(function(res){
+			res.send(res.data)
+		}).catch(function(err){
+			console.log('err:', err);
+		});
+	}
+})
 
-// 		window.location.href = 'signup.html';
-// 	}
-// }])
