@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<title>Page Title</title>
+	</head>
+	<body>
+		<div ng-controller="Regester">
+			username:<input type="text" placeholder="chefname" ng-model ="username"><br>
+			password:<input type="password" placeholder="enteryourpass" ng-model ="password"><br>
+			location:<input type="text" placeholder="location" ng-model ="location"><br>
+			phoneNumber:<input type="text" placeholder="phoneNumber" ng-model ="phoneNumber"><br>
+			description:<input type="text" placeholder="description" ng-model ="description"><br>
+			rating:<input type="text" placeholder="rating" ng-model ="rating"><br>
+			imgUrl:<input type="text" placeholder="imageurl" ng-model ="imgUrl"><br>
+			<button ng-click="Regester()">Regester</button>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
+</html>
