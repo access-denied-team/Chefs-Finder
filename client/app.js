@@ -15,7 +15,7 @@
     controller:"profile"
 })
 .when("/search", {
-  templateUrl: "client/search.html",
+  templateUrl: "search.html",
   controller: "FilterLocation",
 })
 
@@ -23,8 +23,8 @@
     $scope.data = save.myFuncget();
   })
 
-.controller('FilterLocation', function($scope){
-  // function to filter req by location 
+app.controller('FilterLocation', function($scope){
+    $scope.locations = ["Amman", "Irbid", "Aqaba"];
 })
 
  .controller("login",function($scope,save,$http,$location,$routeParams){
