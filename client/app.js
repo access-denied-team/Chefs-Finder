@@ -1,12 +1,10 @@
  
  var app = angular.module("Chef",["ngRoute"]);
- app.config(['$locationProvider', function($locationProvider) {
-    $locationProvider.hashPrefix('');
-    $locationProvider.html5Mode(true);
-
-  }]);
- app.config(["$routeProvider",($routeProvider)=>{
- $routeProvider
+ app.config(["$routeProvider",'$locationProvider',function($routeProvider,$locationProvider){
+  
+  $locationProvider.html5Mode(true);
+ 
+  $routeProvider
  .when("/login",{
     templateUrl:"/login.html",
     controller:"login",
