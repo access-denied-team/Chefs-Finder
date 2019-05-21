@@ -1,15 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="../node_modules/angular/angular.js"></script>
-    <title>Document</title>
-  </head>
-  <body ng-app="Chef">
-    
-    </div>
-    <script src="./src/app.js"></script>
-  </body>
+<head>
+    <base href="/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
+  <script src="./angular-route.js"> </script>
+
+  <title>Chef</title>
+</head>
+<body ng-app="Chef">
+    <a href="login"><button>Login</button></a>
+
+<div ng-view></div>
+  <script src="./app.js"></script>
+</body>
 </html>
