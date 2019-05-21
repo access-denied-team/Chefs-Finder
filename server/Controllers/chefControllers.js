@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 // creates new chef
 
 exports.createChef = function(req, res) {
-console.log("hii");
+
     //hashing the password
     const saltRounds= 10;
     const uncryptPass = req.body.password
@@ -126,6 +126,31 @@ exports.deleteOneChef = function(req, res) { //done
         chef[0].getMeals().then(meals => {
 			res.send(meals)
 		})
+    }).catch(err =>{
+        console.log(err)
+    })
+
+ }
+
+
+
+
+// retrieve chefs by mealname
+ exports.retrieveChefsByMeal= function(req,res){ 
+	 var results=[1]
+	db.Meal.findAll({
+        where:{name:req.body.name}
+    }).then(meals =>{
+		// console.log(meals)
+        meals.forEach(element => {
+			db.Chef.findAll({
+				where:{id:element.chefId}
+			}).then(chef => {
+				console.log(chef[0])
+				results.push(chef[0])
+			})
+		})
+		res.send(results)
     }).catch(err =>{
         console.log(err)
     })

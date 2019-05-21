@@ -9,6 +9,7 @@ router.route("/signup").post((req,res)=>{
 
 
 router.route("/all").get((req,res)=>{
+    
     chefControllers.retrieveAllChefs(req,res)
 })
 
@@ -30,7 +31,8 @@ router.route("/location/:location").get((req,res) => {
 // meal routes
 router.route("/:username/meal").post((req,res)=>{
     chefControllers.createMeal(req,res)
-}).delete((req,res)=>{
+})
+.delete((req,res)=>{
     chefControllers.deleteMeal(req,res)
 })
 router.route("/:username/meal")// retriev all meals of specific user
@@ -38,6 +40,12 @@ router.route("/:username/meal")// retriev all meals of specific user
     chefControllers.retrievemeals(req,res)
 })
 
+
+router.route("/chefs/chefsbymeal")
+.get((req,res) => {
+    console.log("heee")
+    chefControllers.retrieveChefsByMeal(req,res)
+})
 
 
 

@@ -9,13 +9,21 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.js"></script>
   <script src="./angular-route.js"> </script>
+  <link rel="stylesheet" href="angular.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
 
-  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
 </head>
 <body ng-app="Chef">
-    <a href="login"><button>Login</button></a>
-
+    <a href="login"><md-button class="md-fab md-primary" aria-label="Use Android">
+      <md-icon md-svg-src="./chef-hat-outline-symbol.svg"></md-icon>
+    </md-button>
+</a>
+<a href="chefsbylocation">Location</a>
 <div ng-view></div>
   <script src="./app.js"></script>
-</body>
+</body> 
 </html>
