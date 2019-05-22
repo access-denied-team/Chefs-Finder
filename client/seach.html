@@ -4,14 +4,14 @@
     <title>Filter by Location</title>
 </head>
 <body>
-    <div ng-controller = "location">
-        <select name = "location">
-            <option value = "irbid">Irbid</option>
+    <div ng-controller = "chefsByLocation">
+        <select ng-model = "region">
+            <option value = "Irbid">Irbid</option>
             <option value = "Amman">Amman</option>
             <option value = "Aqaba">Aqaba</option>
             <option value = "Zarqa">Zarqa</option>
         </select>   
-        <button ng-click="location()">Search</button>
+        <button ng-click="selectRegion()">Search</button>
     </div>
     <script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>

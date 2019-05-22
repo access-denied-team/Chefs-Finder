@@ -142,12 +142,12 @@ exports.deleteOneChef = function(req, res) { //done
         where:{name:req.body.name}
     }).then(meals =>{
 		// console.log(meals)
-        meals.forEach(element => {
+        meals.forEach((element,index) => {
 			db.Chef.findAll({
 				where:{id:element.chefId}
 			}).then(chef => {
-				console.log(chef[0])
-				results.push(chef[0])
+				console.log(index)
+				results[index]=chef[0]
 			})
 		})
 		res.send(results)

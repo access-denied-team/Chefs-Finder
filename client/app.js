@@ -54,15 +54,16 @@
 })
 
 .controller("chefsByLocation",function($http,$scope,$location){
-	$scope.reigon="Amman";
+	$scope.reigon="Irbid";
 	$scope.chefsByLocation=[]
 
-	$scope.selectRegion =function(reigon){
+	$scope.selectRegion =function(){
 	$http({
 			method:'get',
 			url:`/location/${$scope.reigon}`,
 		headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
+				console.log(response.data)
             $scope.chefsByLocation=response.data
             $location.path("/chefsbylocation")
             }).catch(function(){
@@ -71,7 +72,7 @@
 	}
 
 	}
-})
+)
 
 
 

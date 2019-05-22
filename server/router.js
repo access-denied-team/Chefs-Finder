@@ -30,7 +30,7 @@ router.route("/location/:location").get((req,res) => {
 
 // meal routes
 router.route("/:username/meal").post((req,res)=>{
-    chefControllers.createMeal(req,res)
+        chefControllers.createMeal(req,res)
 })
 .delete((req,res)=>{
     chefControllers.deleteMeal(req,res)
