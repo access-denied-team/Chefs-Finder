@@ -2,27 +2,32 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 	<head>
-		<title>Page Title</title>
-	</head>
-	<body>
-		<div ng-controller="signup" >
-			<div ng-hide="state">
-					username: <input type="text" placeholder="username" ng-model ="username1">
-					password:<input type="password" placeholder="password" ng-model ="password1">
-					<button ng-click ="login()">login</button>
-					<p ng-click="signup()">youdont have an account click here to signup??</p>
-			</div>
-			<div ng-show="state">
-					<img src="{{chefName.imgUrl}}" width="200" height="150">
-					<h1>Chef Name:{{chefName.username}}</h1>
-					<h2>Location:{{chefName.location}}</h2>
-					<h2>Phone Number:{{chefName.phoneNumber}}</h2>
-					<h2>Rating:{{chefName.rating}} / 10</h2>
+		<title>login Page</title>
+		<link rel="stylesheet" href="style.css">
 
-					<input type="text" placeholder="Enter Your New Meal" ng-model ="newmeal" >
+	</head>
+	<body id="loginbody">
+		<div ng-controller="signup" >
+			<div ng-hide="state" id="login">
+					username: <input type="text" placeholder="username" ng-model ="username1" class="logininput">
+					password:<input type="password" placeholder="password" ng-model ="password1" class="logininput">
+					<button ng-click ="login()" id="loginbtn">LogIn</button>
+					<p ng-click="signup()" id="logintosignup">you don't have an account ? click Me to SignUp </p>
+			</div>
+			<div ng-show="state" id="hiddenlogin">
+					<img class="test" src="{{chefName.imgUrl}}" width="200" height="150">
+					<span class="test">Chef Name:{{chefName.username}}</span><br>
+					<span class="test"> Location:{{chefName.location}}</span><br>
+					<span class="test"> Phone Num:{{chefName.phoneNumber}}</span><br>
+					<span class="test"> Rating:{{chefName.rating}} / 10</span><br>
+					<br>
+					<input type="text" placeholder="Enter Your New Meal" ng-model ="newmeal">
 					<input type="text" placeholder="description" ng-model ="desc" >
-					<button ng-click="create()">Creat A New Meal</button>
-					<h5 ng-repeat="meal in chefMeal">Meal Name : {{meal.name + meal.description}}</h5>
+					<button ng-click="create()" id="createbtn">New Meal</button><br>
+					<ul id="meallist">
+						<li ng-repeat="meal in chefMeal">Meal Name:{{meal.name}}
+						  => Description:{{meal.description}}</li>
+					</ul>
 
 			</div>
 		</div>
