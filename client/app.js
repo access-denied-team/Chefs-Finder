@@ -10,6 +10,10 @@
     controller:"login",
     
 })
+.when("/search.html", {
+  template: "/search.html",
+  controller: "filterByLocation"
+})
 .when("/profile",{
     template:"{{data[0].username}}",
     controller:"profile"
@@ -17,6 +21,10 @@
 
  }]).controller("profile",function($scope, save) {
     $scope.data = save.myFuncget();
+  })
+
+  app.controller("filterByLocation", function($scope){
+    $scope.locations = ['Amman', 'Irbid', 'Aqaba', 'Zarqa']
   })
  
  .controller("login",function($scope,save,$http,$location,$routeParams){
