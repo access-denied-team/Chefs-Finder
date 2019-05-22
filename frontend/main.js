@@ -8,19 +8,10 @@ app.controller("myCtr",['$scope',function($scope){
 	$scope.clickme=function(){
 		  window.location.href = 'login.html';
 	}
+	$scope.Customer = function(){
+		  window.location.href = 'customers.html';	
+	}
 }]);
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -128,3 +119,46 @@ app.controller('location', function($scope, $http){
 	}
 })
 
+app.controller('Customerpage',function($scope,$http){
+	$scope.chefLocation="";
+	$scope.chefinformation="";
+	$scope.mealinformation="";
+	$scope.selectbar = function(){
+		console.log($scope.location)
+		$http({
+			method: 'GET', 
+			url: '/location/'+$scope.location,
+			headers: {'Content-Type': "application/json; charset = utf-8"},
+		}).then(function(response){
+			$scope.chefLocation=response.data
+			console.log($scope.chefLocation)
+		}).catch(function(err){
+			console.log("error")
+		})
+	}
+	$scope.chefinfo=function(name){
+		
+		$scope.state = !$scope.state;
+		console.log(name)
+		$http({
+			method:"GET",
+			url:'/'+name,
+			headers: {'Content-Type': "application/json; charset = utf-8"},
+		}).then(function(response){
+			$scope.chefinformation=response.data;
+			console.log($scope.chefinformation)
+		}).then(function(){
+			$http({
+				method:'GET',
+				url:'/'+name+'/meal',
+				headers: {'Content-Type': "application/json; charset = utf-8"},
+				}).then(function(res){
+					console.log(res.data)
+					$scope.mealinformation=res.data;
+			
+				}
+			)
+		})
+		
+	}
+})

@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-<html ng-app="myApp" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Etb5ly</title>
-</head>
-<body>
-<div ng-controller="chefsMainPage" >
-    <h1>Etb5ly</h1>
-<div> Serach for Meal: <input tex </div>
-</div>
-    
-</body>
+<html ng-app="myApp">
+	<head>
+		<title>Page Title</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div ng-controller="Customerpage">
+			<div ng-hide="state">
+				<input type="text" placeholder="enter your location" ng-model="location">
+				<button ng-click="selectbar()">search</button>
+				<h5 ng-repeat="locat in chefLocation">
+					<img src="{{locat.imgUrl}}" width="100" height="100" id="imgcustomer"><br>
+					<span ng-click="chefinfo(locat.username)">ChefName:{{locat.username}}</span><br> 
+					Phone Number:{{locat.phoneNumber}}<br>
+					Description:{{locat.description}}<br>
+					Rating:{{locat.rating}}
+				</h5>	
+			</div>
+			<div ng-show=state>
+				<h3>
+					<img src="{{chefinformation[0].imgUrl}}" width="200" height="300"><br>
+					ChefName:{{chefinformation[0].username}}<br>
+					Phone Number:{{chefinformation[0].phoneNumber}}<br>
+					Description:{{chefinformation[0].description}}<br>
+					Rating:{{chefinformation[0].rating}}<br>
+				</h3>
+			<ol>
+				<li ng-repeat = "meal in mealinformation">
+					Meal Name : {{meal.name}} <br>
+					<span id="mealDesc">Meal Description:{{meal.description}}</span>
+				</li>
+			</ol>
+			</div>
+		</div>
+		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</body>
 </html>
