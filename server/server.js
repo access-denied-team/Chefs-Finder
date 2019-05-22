@@ -7,14 +7,17 @@ const { HTTP_UNAUTHORIZED, HTTP_SERVER_ERROR } = require('../constants.js')
 const db = require("./db/db");
 const secret = require('../secret.js')
 const bcrypt = require("bcrypt")
+const chefcontroller = require('./Controllers/chefcontrollers.js')
 
 //express app
 const app = express();
 const port = process.env.PORT || 3030;
 
 ////////////////////////////////////////////////////////
-// app.use(express.static("frontend"));
-app.use(express.static("client"));
+
+app.use(express.static("frontend"));
+
+
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -68,6 +71,9 @@ app.post('/login', function(req, res){
     const currentPass = chef.password;
     bcrypt.compare(password, currentPass).then((matching) => {
       if(matching){
+
+        //chefcontroller.retrieveOneChef
+
         console.log('LoggedIn')
         return res.redirect('/'+username);  
       }else{
