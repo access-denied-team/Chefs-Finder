@@ -1,56 +1,87 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 	<head>
-		<title>Etbo5li</title>
+		<title>Page Title</title>
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.1/css/mdb.min.css" rel="stylesheet">
 	</head>
-	<body>
-		<div ng-controller="Customerpage">
+	<body class="customers">
+		<div class="container" ng-controller="Customerpage">
+			<p class="h1"><img src="./etb5ly.png" alt=""></p>
+			<div ng-show="!stateSearch">
+					<form class="form-inline md-form mr-auto mb-4">
+							<input ng-model="location" class="form-control mr-sm-2" type="text" placeholder="Your Area" aria-label="Search">
+							<button ng-click="selectbar()" class="btn btn-danger" type="submit">Search</button>
+						  </form>
 
-		  <div class="header" ng-hide="state">
-					<h1><center>Search By Location</center></h1>
-					<form class="cont">
-					  <input type="text" class="srchFld" placeholder="Please Enter Your Location" ng-model="location"/>
-					  <button type="submit" class="srchBtn" ng-click="selectbar()">Search</button>
-					  <div class="entypo-search ico"></div>
-					</form>
-		  </div>
-		  <section class="content">
-				<div class="contact" ng-repeat="locat in chefLocation">
-				<div class="wrapr">
-						<span class="imgWrpr"><img src="{{locat.imgUrl}}" width="100" height="100" /></span>
-							<span class="contactInfo"> 
-							  <div class="name" ng-click="chefinfo(locat.username)">
-							  <div>{{locat.username}}</div>
-							  <div>{{locat.phoneNumber}}</div>
-							  <div>{{locat.description}}</div>
-							  <div>{{locat.rating}}</div>
-							</span>
-	 			</div>		  
-				</div>
-			</section>
 			</div>
-
 			<div ng-show="state">
-				<h2>
-
+				<form class="form-inline md-form mr-auto mb-4" ><div><input placeholder="Search For Tab5a"  class="form-control mr-sm-2" type="text" ng-model="mealSearch" > 
+					<button class="btn btn-danger" ng-click="searchbymeal()">Search</button></div> </form>
+					 
+					<br><br>
+                    <!-- <h5 ng-repeat="locat in chefLocation">
+					<img src="{{locat.imgUrl}}" width="100" height="100" id="imgcustomer"><br>
+					<span ng-click="chefinfo(locat.username)">ChefName:{{locat.username}}</span><br> 
+					Phone Number:{{locat.phoneNumber}}<br>
+					Description:{{locat.description}}<br>
+					Rating:{{locat.rating}}
+				</h5> -->
+				<div   class="container ">
+						<div  ng-repeat="locat in chefLocation" class="row justify-content-md-center ">
+							<div   class="col-lg-6 col-sm-6 ">
+					
+								<div class="card hovercard">
+									<div class="cardheader">
+		
+									</div>
+									<div class="avatar">
+										<img ng-click="chefinfo(locat.username)" alt="" src="http://lorempixel.com/100/100/people/9/">
+									</div>
+									<div class="info">
+										<div class="title">
+											<a target="_blank"  >{{locat.username}}</a>
+										</div>
+										<div class="desc">{{locat.description}}</div>
+						
+									</div>
+									<div class="bottom">
+											<div class="desc">{{locat.rating}}/10</div>
+										<button class="btn btn-primary btn-twitter btn-sm" >
+											<i class="fa fa-twitter"></i>
+										</button>
+										
+										
+									</div>
+								</div>
+					
+							</div>
+					
+						</div>
+					</div>	
+			</div>
+			<div ng-show=stateinfo>
+				<h3>
 					<img src="{{chefinformation[0].imgUrl}}" width="200" height="300"><br>
-					{{chefinformation[0].username}}<br>
-					{{chefinformation[0].phoneNumber}}<br>
-					{{chefinformation[0].description}}<br>
-					{{chefinformation[0].rating}}<br>
-				</h2>
+					ChefName:{{chefinformation[0].username}}<br>
+					Phone Number:{{chefinformation[0].phoneNumber}}<br>
+					Description:{{chefinformation[0].description}}<br>
+					Rating:{{chefinformation[0].rating}}<br>
+				</h3>
 			<ol>
 				<li ng-repeat = "meal in mealinformation">
-					{{meal.name}} <br>
-					<span id="mealDesc">{{meal.description}}</span>
+					Meal Name : {{meal.name}} <br>
+					<span id="mealDesc">Meal Description:{{meal.description}}</span>
 				</li>
 			</ol>
 			</div>
 		</div>
-
-		
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
