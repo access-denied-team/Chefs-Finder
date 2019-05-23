@@ -1,124 +1,173 @@
+@import url(https://fonts.googleapis.com/css?family=Varela);
+
 #indexbody{
-	background-image: url("http://foodfoolishbook.naturalleader.com/wp-content/themes/FoodFoolish%202015/images/bg.jpg");
-	background-repeat: no-repeat;
+	display: flex;
+  height: 100vh;
+  min-height: 35rem;
+  align-items: center;
+  justify-content: center;
+  background-image: url("http://foodfoolishbook.naturalleader.com/wp-content/themes/FoodFoolish%202015/images/bg.jpg");
+  background-repeat: no-repeat;
 	background-size: cover;
 }
-#index{
- margin: auto;
-  width: 50%;
-  padding: 10px;
-  margin-top: 20%;
+
+/* home page styling */
+.index{
+   font-weight: bold;
+  font-size: 1.8rem; 
+   position: relative;
+  margin: 0 auto;
+  @media (--pc) {
+    max-width: 450px;
+  z-index: 3;
+  position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+	transform: translate(-50%,-50%);
+	background-color: white;
 }
+}
+
+#home-txt{
+	position: relative;
+	text-align: center;
+	margin-bottom: 1em;
+	font-size: 50px;
+}
+
 #Customerbtn{
+	text-align: center;
 	display: block;
-	width: 50%;
-	margin-left: 25%;
-	background-color: #C70039;
-	padding: 10px;
 	color: white;
-	 border-radius: 50%;
+	background-color:rgba(238, 57, 81, 0.25);
+	width: 20em;
+	border-radius: 20px;
 	 cursor: pointer;
+	 border: 2px solid transparent;
+	 padding-top: 1rem;
+	 padding-bottom: 1rem;
 }
 #Chefbtn{
-	display: block;
-	margin-left: 25%;
-	width: 50%;
-	margin-top: 50px;
-	background-color:#2471A3;
-	padding: 10px;
-	color: white;
-	border-radius: 50%;
-	cursor: pointer;
-}
-
-#login{
-	margin-top: 30px;
-	margin-left: 50%;
-	font-size: 25px;
-	color:#1F618D;
-}
-
-.logininput{
-	padding: 7px;
-}
-#loginbtn{
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	cursor: pointer;
-	background-color: #F0880B  ;
-}
-#logintosignup:hover{
-	cursor: pointer;
-	color: red;
-}
-#loginbody{
-
-	background-image: url("https://st4.depositphotos.com/2760050/25335/i/1600/depositphotos_253353330-stock-photo-woman-pretty-chef-wear-hat.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
-#hiddenlogin{
-	font-size: 30px;
-}
-
-
-.test{
-	margin-left: 30px;
-	display: block;
-	float: left;
-	color: #F91231;
-}
-#createbtn{
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
-	background-color: #F91231;
-	color: white;
-}
-
-#meallist{
-	font-size: 20px;
-}
-
-#imgcustomer{
- border-radius: 80px;
-  border: 2px solid #73AD21;
-  padding: 20px; 
-  width: 150px;
-  height: 100px;
-}
-
-#mealDesc{
-	font-size: 10px;
-}
-#regesterdiv{
-	margin-left: 35%;
-	font-size: 20px;
-	margin-top: 7%;
-}
-.signuptext{
 	text-align: center;
-	width: 30%;
-  	padding: 5px;
-  	margin-left: 30px;
-  	margin-top: 20px;
-  	
+	margin-top: 1em;
+	display: block;
+	width: 20em;
+	background-color:rgba(17, 50, 243, 0.25);
+	padding: 10px;
+	color: #fff;
+	border-radius: 20px;
+	cursor: pointer;
+	border: 2px solid transparent;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 
+/* //////////////////// */
+  
+/* Login page styling */
+
+.relative{
+    position: relative;
 }
-#regesterbtn{
-	width: 150px;
-	margin-top: 50px;
-	margin-left: 12%;
-	height: 150px;
-	 border-radius: 100px;
-	 cursor: pointer;
-	 background-image: url("https://media.istockphoto.com/photos/carrots-picture-id479805740?k=6&m=479805740&s=612x612&w=0&h=7mKUmUldCbzupxaiLnuEYo7LvQPEaS3zNaM_krqARkg=");
-	 	background-repeat: no-repeat;
-	background-size: cover;
+
+.welcome{
+	padding-top: -30px;
+	font-size: 20px;
 }
+
+.login-container-wrapper .logo,
+.login-container-wrapper .welcome{
+    margin: 0 0 20px 0;
+    font-size: 26px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 5px #000;
+}
+
+.login-container-wrapper{
+    max-width: 400px;
+    margin: 15% auto;
+    padding: 40px;
+  border-radius:50px 0;
+    box-sizing: border-box;
+    background: rgba(241, 174, 98, 0.877);
+    box-shadow: 1px 1px 4px 0px #000000, 8px 8px 0px 0px #f38b36, 9px 9px 4px 0px #000000, 16px 16px 0px 0px rgb(255, 115, 0), 17px 17px 7px 1px #000000;
+    position: relative;
+    padding-top: 80px;
+}
+
+.login-form .form-group{
+    margin-right: 0;
+    margin-left: 0;
+}
+.login input:focus + .fa{
+  color:#1d5256;
+}
+.login-form i{
+    position: absolute;
+    top:18px;
+    right: 20px;
+    color: #a2703f;
+}
+.login-form .input-lg{
+    font-size: 16px;
+    height: 52px;
+    padding: 10px 25px;
+    border-radius: 0;
+}
+.login input[type="text"],
+.login input[type="password"],
+.login input:focus{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #a2703f;
+    color: #eee;
+    border-left: 4px solid rgba(150, 103, 58, 0.99);
+}
+.login input:focus{
+    border-left: 4px solid #ccd8da;
+}
+input:focus i{
+    color: #fff !important;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: rgba(19, 120, 243, 0.75)!important;
+    background-image: none;
+    color: rgb(0, 0, 0);
+    border-color: #FAFFBD;
+}
+.login .checkbox label,
+.login .checkbox a{
+    color: #ddd;
+}
+.btn-success{
+    background-color: transparent;
+    padding: 8px 50px;
+    border-radius: 0;
+    border: 2px solid #93a5ab;
+    box-shadow: inset 0 0 0 0 #7692A7;
+    transition: all ease 0.8s;
+}
+.btn-success:focus, .btn-success:hover, .btn-success.active, .btn-success:active,.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover{
+        background-color: transparent;
+        border-color: #fff;
+        box-shadow: inset 0 0 100px 0 #7692A7;
+        color: #FFF;
+}
+
+/* /////////// */
+
+/* Customer page styling */
+
+
+
+
+/* ////////// */
+
+
 
 
 

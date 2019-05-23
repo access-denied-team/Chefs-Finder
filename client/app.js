@@ -14,6 +14,10 @@
     controller:"login",
     
 })
+.when("/search.html", {
+  template: "/search.html",
+  controller: "filterByLocation"
+})
 .when("/profile",{
     templateUrl:"/profileChef.html",
     controller:"profile"
@@ -25,6 +29,10 @@
  .controller("profile",function($scope,$rootScope) {
     $scope.data = $rootScope.data
     $scope.imagePath = '/chef-hat-outline-symbol.svg';
+  })
+
+  app.controller("filterByLocation", function($scope){
+    $scope.locations = ['Amman', 'Irbid', 'Aqaba', 'Zarqa']
   })
  
 	//login ctrl

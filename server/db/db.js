@@ -1,7 +1,9 @@
 const Sequelize = require("sequelize");
 
 // creates new connection
+
 const sequelize = new Sequelize("test", "root", "1111", {
+
   host: "localhost",
   dialect: "mysql"
 });
