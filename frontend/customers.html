@@ -3,20 +3,34 @@
 	<head>
 		<title>Etbo5li</title>
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	</head>
 	<body>
 		<div ng-controller="Customerpage">
-			<div ng-hide="state">
-				<input type="text" placeholder="enter your location" ng-model="location">
-				<button ng-click="selectbar()">search</button>
-				<h1 ng-repeat="locat in chefLocation">
-					<img src="{{locat.imgUrl}}" width="100" height="100" id="imgcustomer"><br>
-					<span ng-click="chefinfo(locat.username)">{{locat.username}}</span><br> 
-					{{locat.phoneNumber}}<br>
-					{{locat.description}}<br>
-					{{locat.rating}}
-				</h1>	
+		  <div class="header" ng-hide="state">
+					<h1><center>Search By Location</center></h1>
+					<form class="cont">
+					  <input type="text" class="srchFld" placeholder="Please Enter Your Location" ng-model="location"/>
+					  <button type="submit" class="srchBtn" ng-click="selectbar()">Search</button>
+					  <div class="entypo-search ico"></div>
+					</form>
+		  </div>
+		  <section class="content">
+				<div class="contact" ng-repeat="locat in chefLocation">
+				<div class="wrapr">
+						<span class="imgWrpr"><img src="{{locat.imgUrl}}" width="100" height="100" /></span>
+							<span class="contactInfo"> 
+							  <div class="name" ng-click="chefinfo(locat.username)">
+							  <div>{{locat.username}}</div>
+							  <div>{{locat.phoneNumber}}</div>
+							  <div>{{locat.description}}</div>
+							  <div>{{locat.rating}}</div>
+							</span>
+	 			</div>		  
+				</div>
+			</section>
 			</div>
+
 			<div ng-show="state">
 				<h2>
 					<img src="{{chefinformation[0].imgUrl}}" width="200" height="300"><br>
@@ -33,6 +47,8 @@
 			</ol>
 			</div>
 		</div>
+
+		
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>

@@ -160,56 +160,14 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 /* /////////// */
 
+/* Customer page styling */
 
-#createbtn{
-	border-radius: 50%;
-	width: 50px;
-	height: 50px;
-	cursor: pointer;
-	background-color: #F91231;
-	color: white;
-}
 
-#meallist{
-	font-size: 20px;
-}
 
-#imgcustomer{
- border-radius: 80px;
-  border: 2px solid #73AD21;
-  padding: 20px; 
-  width: 150px;
-  height: 100px;
-}
 
-#mealDesc{
-	font-size: 10px;
-}
-#regesterdiv{
-	margin-left: 35%;
-	font-size: 20px;
-	margin-top: 7%;
-}
-.signuptext{
-	text-align: center;
-	width: 30%;
-  	padding: 5px;
-  	margin-left: 30px;
-  	margin-top: 20px;
-  	
+/* ////////// */
 
-}
-#regesterbtn{
-	width: 150px;
-	margin-top: 50px;
-	margin-left: 12%;
-	height: 150px;
-	 border-radius: 100px;
-	 cursor: pointer;
-	 background-image: url("https://media.istockphoto.com/photos/carrots-picture-id479805740?k=6&m=479805740&s=612x612&w=0&h=7mKUmUldCbzupxaiLnuEYo7LvQPEaS3zNaM_krqARkg=");
-	 	background-repeat: no-repeat;
-	background-size: cover;
-}
+
 
 
 
