@@ -69,10 +69,6 @@
   
 /* Login page styling */
 
-.login{
-	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSei7sWFPlnYF1KOsnpPNuwJ3xfi4Ieyr9MEr0tlrosRtU6YCY1")
-}
-
 .relative{
     position: relative;
 }
@@ -85,33 +81,21 @@
 .login-container-wrapper .logo,
 .login-container-wrapper .welcome{
     margin: 0 0 20px 0;
-    font-size: 16px;
+    font-size: 26px;
     color: #fff;
     text-align: center;
     letter-spacing: 1px;
     text-shadow: 0px 0px 5px #000;
 }
-.login-container-wrapper .logo{
-    text-align: center;
-    position: absolute;
-    top: -38px;
-    margin: 0 auto;
-    width: 90px;
-    left: 50%;
-    margin-left:-45px;
-    border-radius:50%;
-    background-color:blue;
-    padding: 20px;
-    box-shadow: 0px 3px 2px 0px #000;
-}
+
 .login-container-wrapper{
     max-width: 400px;
     margin: 15% auto;
     padding: 40px;
   border-radius:50px 0;
     box-sizing: border-box;
-    background: rgba(243, 166, 78, 0.877);
-    box-shadow: 1px 1px 4px 0px #000000, 8px 8px 0px 0px #eb8635, 9px 9px 4px 0px #000000, 16px 16px 0px 0px rgb(241, 67, 14), 17px 17px 7px 1px #000000;
+    background: rgba(241, 174, 98, 0.877);
+    box-shadow: 1px 1px 4px 0px #000000, 8px 8px 0px 0px #f38b36, 9px 9px 4px 0px #000000, 16px 16px 0px 0px rgb(255, 115, 0), 17px 17px 7px 1px #000000;
     position: relative;
     padding-top: 80px;
 }
