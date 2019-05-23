@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Varela);
+
 #indexbody{
 	display: flex;
   height: 100vh;
@@ -65,45 +67,110 @@
 
 /* //////////////////// */
   
-#login{
-	margin-top: 30px;
-	margin-left: 50%;
-	font-size: 25px;
-	color:#1F618D;
+/* Login page styling */
+
+.login{
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSei7sWFPlnYF1KOsnpPNuwJ3xfi4Ieyr9MEr0tlrosRtU6YCY1")
 }
 
-.logininput{
-	padding: 7px;
+.relative{
+    position: relative;
 }
-#loginbtn{
-	width: 50px;
-	height: 50px;
-	border-radius: 50%;
-	cursor: pointer;
-	background-color: #F0880B  ;
+.login-container-wrapper .logo,
+.login-container-wrapper .welcome{
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 5px #000;
 }
-#logintosignup:hover{
-	cursor: pointer;
-	color: red;
+.login-container-wrapper .logo{
+    text-align: center;
+    position: absolute;
+    top: -38px;
+    margin: 0 auto;
+    width: 90px;
+    left: 50%;
+    margin-left:-45px;
+    border-radius:50%;
+    background-color:blue;
+    padding: 20px;
+    box-shadow: 0px 3px 2px 0px #000;
 }
-#loginbody{
+.login-container-wrapper{
+    max-width: 400px;
+    margin: 15% auto;
+    padding: 40px;
+  border-radius:50px 0;
+    box-sizing: border-box;
+    background: rgba(243, 166, 78, 0.877);
+    box-shadow: 1px 1px 4px 0px #000000, 8px 8px 0px 0px #eb8635, 9px 9px 4px 0px #000000, 16px 16px 0px 0px rgb(241, 67, 14), 17px 17px 7px 1px #000000;
+    position: relative;
+    padding-top: 80px;
+}
 
-	background-image: url("https://st4.depositphotos.com/2760050/25335/i/1600/depositphotos_253353330-stock-photo-woman-pretty-chef-wear-hat.jpg");
-	background-repeat: no-repeat;
-	background-size: cover;
+.login-form .form-group{
+    margin-right: 0;
+    margin-left: 0;
+}
+.login input:focus + .fa{
+  color:#1d5256;
+}
+.login-form i{
+    position: absolute;
+    top:18px;
+    right: 20px;
+    color: #a2703f;
+}
+.login-form .input-lg{
+    font-size: 16px;
+    height: 52px;
+    padding: 10px 25px;
+    border-radius: 0;
+}
+.login input[type="text"],
+.login input[type="password"],
+.login input:focus{
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #a2703f;
+    color: #eee;
+    border-left: 4px solid rgba(150, 103, 58, 0.99);
+}
+.login input:focus{
+    border-left: 4px solid #ccd8da;
+}
+input:focus i{
+    color: #fff !important;
+}
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: rgba(19, 120, 243, 0.75)!important;
+    background-image: none;
+    color: rgb(0, 0, 0);
+    border-color: #FAFFBD;
+}
+.login .checkbox label,
+.login .checkbox a{
+    color: #ddd;
+}
+.btn-success{
+    background-color: transparent;
+    padding: 8px 50px;
+    border-radius: 0;
+    border: 2px solid #93a5ab;
+    box-shadow: inset 0 0 0 0 #7692A7;
+    transition: all ease 0.8s;
+}
+.btn-success:focus, .btn-success:hover, .btn-success.active, .btn-success:active,.btn-success.active.focus, .btn-success.active:focus, .btn-success.active:hover, .btn-success:active.focus, .btn-success:active:focus, .btn-success:active:hover, .open>.dropdown-toggle.btn-success.focus, .open>.dropdown-toggle.btn-success:focus, .open>.dropdown-toggle.btn-success:hover{
+        background-color: transparent;
+        border-color: #fff;
+        box-shadow: inset 0 0 100px 0 #7692A7;
+        color: #FFF;
 }
 
-#hiddenlogin{
-	font-size: 30px;
-}
+/* /////////// */
 
 
-.test{
-	margin-left: 30px;
-	display: block;
-	float: left;
-	color: #F91231;
-}
 #createbtn{
 	border-radius: 50%;
 	width: 50px;
