@@ -1,10 +1,11 @@
 const db = require("../db/db.js");
 const bcrypt = require('bcrypt');
+const Sequelize = require("sequelize");
 
 // creates new chef
 
 exports.createChef = function(req, res) {
-console.log("hii");
+
     //hashing the password
     const saltRounds= 10;
     const uncryptPass = req.body.password
@@ -130,4 +131,22 @@ exports.deleteOneChef = function(req, res) { //done
         console.log(err)
     })
 
+ }
+
+
+
+ 
+// retrieve chefs by mealname
+ exports.retrieveChefsByMeal= function(req,res){ 
+	db.Chef.findAll({ include:
+		[{ model: db.Meal,
+			where: { name: {[Sequelize.Op.like]:"%"+req.params.mealName+"%" } 
+		
+		            }  
+	                 }]
+            }).then(chefs =>{ 
+		            res.status(200)
+		             res.send(chefs)}
+		)
+		.catch(console.error)
  }
