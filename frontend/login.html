@@ -2,8 +2,9 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 	<head>
-		<title>login Page</title>
+		<title>Etbo5li</title>
 		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
 	</head>
 	<body id="loginbody">
@@ -12,7 +13,7 @@
 					username: <input type="text" placeholder="username" ng-model ="username1" class="logininput">
 					password:<input type="password" placeholder="password" ng-model ="password1" class="logininput">
 					<button ng-click ="login()" id="loginbtn">LogIn</button>
-					<p ng-click="signup()" id="logintosignup">you don't have an account ? click Me to SignUp </p>
+					<p ng-click="signup()" id="logintosignup">New to Etbo5li? signup</p>
 			</div>
 			<div ng-show="state" id="hiddenlogin">
 					<img class="test" src="{{chefName.imgUrl}}" width="200" height="150">
