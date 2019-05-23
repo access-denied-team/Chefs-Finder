@@ -8,16 +8,9 @@
 	</head>
 	<body calss="login">
 		<div ng-controller="signup">
-			<!-- <div ng-hide="state"  class="container">
-					<div class="welcome"><strong>Welcome,</strong> please login</div>
-					Username: <input type="text" placeholder="Enter Username" ng-model ="username1" class="logininput"><br/>
-					Password:<input type="password" placeholder="Enter Password" ng-model ="password1" class="logininput"><br/>
-					<button ng-click ="login()" id="loginbtn">LogIn</button>
-			</div> -->
-
 			<div class="container">
 					<div class="login-container-wrapper clearfix" ng-hide="state">
-						<div class="welcome"><strong>Welcome,</strong> please login</div>
+						<div class="welcome"><strong>Welcome, please login</strong></div>
 			
 						<form class="form-horizontal login-form">
 							<div class="form-group relative">
@@ -31,7 +24,7 @@
 						  <div class="form-group">
 							<button type="submit" class="btn btn-success btn-lg btn-block" ng-click="login()">Login</button>
 						  </div>
-						  <p ng-click="signup()" class="btn btn-success btn-lg btn-block">New to Etdbo5li? Signup</p>
+						  <p ng-click="signup()" class="btn btn-success btn-lg btn-block">Signup</p>
 					<div class="checkbox pull-left">
 							<label><input type="checkbox"> Remember Me</label>
 						  </div>
@@ -49,7 +42,7 @@
 					<input type="text" placeholder="description" ng-model ="desc" >
 					<button ng-click="create()" id="createbtn">New Meal</button><br>
 					<ol id="meallist">
-						<li ng-repeat="meal in chefMeal">{{meal.name}}, {{meal.description}}</li>
+						<li ng-repeat="meal in chefMeal">{{meal.name}}<br/> {{meal.description}}</li>
 					</ol>
 
 			</div>

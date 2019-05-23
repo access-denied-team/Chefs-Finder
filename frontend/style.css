@@ -76,6 +76,12 @@
 .relative{
     position: relative;
 }
+
+.welcome{
+	padding-top: -30px;
+	font-size: 20px;
+}
+
 .login-container-wrapper .logo,
 .login-container-wrapper .welcome{
     margin: 0 0 20px 0;

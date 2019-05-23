@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 	<head>
-		<title>Page Title</title>
+		<title>Etbo5li</title>
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
@@ -9,26 +9,26 @@
 			<div ng-hide="state">
 				<input type="text" placeholder="enter your location" ng-model="location">
 				<button ng-click="selectbar()">search</button>
-				<h5 ng-repeat="locat in chefLocation">
+				<h1 ng-repeat="locat in chefLocation">
 					<img src="{{locat.imgUrl}}" width="100" height="100" id="imgcustomer"><br>
-					<span ng-click="chefinfo(locat.username)">ChefName:{{locat.username}}</span><br> 
-					Phone Number:{{locat.phoneNumber}}<br>
-					Description:{{locat.description}}<br>
-					Rating:{{locat.rating}}
-				</h5>	
+					<span ng-click="chefinfo(locat.username)">{{locat.username}}</span><br> 
+					{{locat.phoneNumber}}<br>
+					{{locat.description}}<br>
+					{{locat.rating}}
+				</h1>	
 			</div>
-			<div ng-show=state>
-				<h3>
+			<div ng-show="state">
+				<h2>
 					<img src="{{chefinformation[0].imgUrl}}" width="200" height="300"><br>
-					ChefName:{{chefinformation[0].username}}<br>
-					Phone Number:{{chefinformation[0].phoneNumber}}<br>
-					Description:{{chefinformation[0].description}}<br>
-					Rating:{{chefinformation[0].rating}}<br>
-				</h3>
+					{{chefinformation[0].username}}<br>
+					{{chefinformation[0].phoneNumber}}<br>
+					{{chefinformation[0].description}}<br>
+					{{chefinformation[0].rating}}<br>
+				</h2>
 			<ol>
 				<li ng-repeat = "meal in mealinformation">
-					Meal Name : {{meal.name}} <br>
-					<span id="mealDesc">Meal Description:{{meal.description}}</span>
+					{{meal.name}} <br>
+					<span id="mealDesc">{{meal.description}}</span>
 				</li>
 			</ol>
 			</div>
