@@ -1,10 +1,14 @@
  
- var app = angular.module("Chef",["ngRoute"]);
+ var app = angular.module("Chef",["ngRoute",'ngMaterial', 'ngMessages']);
  app.config(["$routeProvider",'$locationProvider',function($routeProvider,$locationProvider){
   
   $locationProvider.html5Mode(true);
  
-  $routeProvider
+	$routeProvider
+	.when("/chefsbylocation",{
+		templateUrl:"/chefsByLocation.html",
+		controller:"chefsByLocation"
+	})
  .when("/login",{
     templateUrl:"/login.html",
     controller:"login",
@@ -15,19 +19,24 @@
   controller: "filterByLocation"
 })
 .when("/profile",{
-    template:"{{data[0].username}}",
+    templateUrl:"/profileChef.html",
     controller:"profile"
 })
 
- }]).controller("profile",function($scope, save) {
-    $scope.data = save.myFuncget();
+ }])
+ 
+ //profile ctrl
+ .controller("profile",function($scope,$rootScope) {
+    $scope.data = $rootScope.data
+    $scope.imagePath = '/chef-hat-outline-symbol.svg';
   })
 
   app.controller("filterByLocation", function($scope){
     $scope.locations = ['Amman', 'Irbid', 'Aqaba', 'Zarqa']
   })
  
- .controller("login",function($scope,save,$http,$location,$routeParams){
+	//login ctrl
+ .controller("login",function($scope,$http,$location,$rootScope){
     
     $scope.login=function(){
 		
@@ -40,7 +49,7 @@
 			}),
 		headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
-            save.myFuncset(response.data)
+            $rootScope.data = response.data[0]
             $location.path("/profile")
             
 		}).catch(function(){
@@ -50,19 +59,30 @@
 
 
     
-});
+})
+
+.controller("chefsByLocation",function($http,$scope,$location){
+	$scope.reigon="Irbid";
+	$scope.chefsByLocation=[]
+
+	$scope.selectRegion =function(){
+	$http({
+			method:'get',
+			url:`/location/${$scope.reigon}`,
+		headers: {'Content-Type': "application/json; charset = utf-8"}
+		}).then(function(response){
+				console.log(response.data)
+            $scope.chefsByLocation=response.data
+            $location.path("/chefsbylocation")
+            }).catch(function(){
+			console.log('big error')
+		})
+	}
+
+	}
+)
 
 
-app.service('save', function() {
-    this.data;
-    this.myFuncset = function (x) {
-        this.data=x
-    }
-
-    this.myFuncget = function () {
-      return this.data;
-    }
-  });
 
 
 

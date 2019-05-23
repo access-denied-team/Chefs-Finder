@@ -24,8 +24,8 @@ app.controller("signup",function($scope,$http,$rootScope,Data){
 		window.location.href = 'signup.html';
 	}
 	$scope.login=function(){
-		console.log("hello oday")
-		$scope.state = !$scope.state;
+		
+		
 		$http({
 			method:'post',
 			url:'/login',
@@ -36,6 +36,7 @@ app.controller("signup",function($scope,$http,$rootScope,Data){
 		headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
 			console.log(response);
+			$scope.state = !$scope.state;
 			$scope.chefName=response.data[0];
 			console.log($scope.chefName);
 
@@ -79,7 +80,7 @@ app.controller('Regester',function($scope,$http){
 			data:JSON.stringify({
 				username:$scope.username,
 				password:$scope.password,
-				location:$scope.location,
+				location:$scope.location.toUpperCase(),
 				phoneNumber:$scope.phoneNumber,
 				description:$scope.description,
 				rating:$scope.rating,
@@ -93,52 +94,53 @@ app.controller('Regester',function($scope,$http){
 		}).catch(function(){
 			console.log('erooooor')
 		})
-
-// 	$http({
-// 		method:'GET',
-// 		url:'/all'
-// 	}).then(function(response){
-// 		console.log(response.data)	
-// },function(error){
-// 		console.log('errrrrrrrrrrrrrrrrrrrrrr')
-// 	})
 	}
 })
 
-app.controller('location', function($scope, $http){
-	$scope.location = function(){
-		$http({
-			method: 'GET', 
-			url: '/location/ ' + $scope.location,
-			headers: {'Content-Type': "application/json; charset = utf-8"},
-		}).then(function(res){
-			res.send(res.data)
-		}).catch(function(err){
-			console.log('err:', err);
-		});
-	}
-})
+
 
 app.controller('Customerpage',function($scope,$http){
 	$scope.chefLocation="";
 	$scope.chefinformation="";
 	$scope.mealinformation="";
-	$scope.selectbar = function(){
-		console.log($scope.location)
+   $scope.chefsByMeal=[]
+
+	$scope.searchbymeal= function(){
+		
 		$http({
 			method: 'GET', 
-			url: '/location/'+$scope.location,
-			headers: {'Content-Type': "application/json; charset = utf-8"},
+			url: "/chefs/"+$scope.mealSearch,
+			headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
-			$scope.chefLocation=response.data
-			console.log($scope.chefLocation)
+			$scope.chefsByMeal=response.data
+			console.log($scope.chefsByMeal)
 		}).catch(function(err){
 			console.log("error")
 		})
 	}
+           
+
+	$scope.selectbar = function(){
+		console.log($scope.location)
+		$http({
+			method: 'GET', 
+			url: '/location/'+$scope.location.toUpperCase(),
+			headers: {'Content-Type': "application/json; charset = utf-8"},
+		}).then(function(response){
+			$scope.chefLocation=response.data
+			console.log($scope.chefLocation)
+			$scope.stateSearch = !$scope.stateSearch;
+			$scope.state = !$scope.state;
+
+		}).catch(function(err){
+			console.log("error")
+		})
+	}
+	
 	$scope.chefinfo=function(name){
-		
 		$scope.state = !$scope.state;
+
+		$scope.stateinfo = !$scope.stateinfo;
 		console.log(name)
 		$http({
 			method:"GET",
