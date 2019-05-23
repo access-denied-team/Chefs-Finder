@@ -128,19 +128,15 @@ app.controller('Customerpage',function($scope,$http){
 			headers: {'Content-Type': "application/json; charset = utf-8"},
 		}).then(function(response){
 			$scope.chefLocation=response.data
-			console.log($scope.chefLocation)
 			$scope.stateSearch = !$scope.stateSearch;
-			$scope.state = !$scope.state;
-
+			console.log($scope.chefLocation)
 		}).catch(function(err){
-			console.log("error")
+			console.log("error: " , err)
 		})
 	}
 	
 	$scope.chefinfo=function(name){
-		$scope.state = !$scope.state;
-
-		$scope.stateinfo = !$scope.stateinfo;
+		$scope.stateList = !$scope.stateList;
 		console.log(name)
 		$http({
 			method:"GET",
@@ -148,6 +144,7 @@ app.controller('Customerpage',function($scope,$http){
 			headers: {'Content-Type': "application/json; charset = utf-8"},
 		}).then(function(response){
 			$scope.chefinformation=response.data;
+			$scope.stateInfo = !$scope.stateInfo;
 			console.log($scope.chefinformation)
 		}).then(function(){
 			$http({
