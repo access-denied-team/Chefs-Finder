@@ -2,18 +2,20 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 	<head>
-		<title>Page Title</title>
+		<title>SignUp Page</title>
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 	</head>
 	<body>
-		<div ng-controller="Regester">
-			username:<input type="text" placeholder="chefname" ng-model ="username"><br>
-			password:<input type="password" placeholder="enteryourpass" ng-model ="password"><br>
-			location:<input type="text" placeholder="location" ng-model ="location"><br>
-			phoneNumber:<input type="text" placeholder="phoneNumber" ng-model ="phoneNumber"><br>
-			description:<input type="text" placeholder="description" ng-model ="description"><br>
-			rating:<input type="text" placeholder="rating" ng-model ="rating"><br>
-			imgUrl:<input type="text" placeholder="imageurl" ng-model ="imgUrl"><br>
-			<button ng-click="Regester()">Regester</button>
+		<div ng-controller="Regester" id="regesterdiv">
+			username:<input type="text" placeholder="chefname" ng-model ="username" class="signuptext"><br>
+			password:<input type="password" placeholder="enteryourpass" ng-model ="password" class="signuptext"><br>
+			location:<input type="text" placeholder="location" ng-model ="location" class="signuptext"><br>
+			phoneNumber:<input type="text" placeholder="phoneNumber" ng-model ="phoneNumber" class="signuptext"><br>
+			description:<input type="text" placeholder="description" ng-model ="description" class="signuptext"><br>
+			rating:<input type="text" placeholder="rating" ng-model ="rating" class="signuptext"><br>
+			imgUrl:<input type="text" placeholder="imageurl" ng-model ="imgUrl" class="signuptext"><br>
+			<button ng-click="Regester()" id="regesterbtn">Regester</button>
 		</div>
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>

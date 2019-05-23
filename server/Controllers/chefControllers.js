@@ -1,5 +1,6 @@
 const db = require("../db/db.js");
 const bcrypt = require('bcrypt');
+const Sequelize = require("sequelize");
 
 // creates new chef
 
@@ -134,25 +135,18 @@ exports.deleteOneChef = function(req, res) { //done
 
 
 
-
+ 
 // retrieve chefs by mealname
  exports.retrieveChefsByMeal= function(req,res){ 
-	 var results=[1]
-	db.Meal.findAll({
-        where:{name:req.body.name}
-    }).then(meals =>{
-		// console.log(meals)
-        meals.forEach((element,index) => {
-			db.Chef.findAll({
-				where:{id:element.chefId}
-			}).then(chef => {
-				console.log(index)
-				results[index]=chef[0]
-			})
-		})
-		res.send(results)
-    }).catch(err =>{
-        console.log(err)
-    })
-
+	db.Chef.findAll({ include:
+		[{ model: db.Meal,
+			where: { name: {[Sequelize.Op.like]:"%"+req.params.mealName+"%" } 
+		
+		            }  
+	                 }]
+            }).then(chefs =>{ 
+		            res.status(200)
+		             res.send(chefs)}
+		)
+		.catch(console.error)
  }

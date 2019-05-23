@@ -40,10 +40,9 @@ router.route("/:username/meal")// retriev all meals of specific user
     chefControllers.retrievemeals(req,res)
 })
 
-
-router.route("/chefs/chefsbymeal")
+//api to search for chefs by meal
+router.route("/chefs/:mealName")
 .get((req,res) => {
-    console.log("heee")
     chefControllers.retrieveChefsByMeal(req,res)
 })
 
