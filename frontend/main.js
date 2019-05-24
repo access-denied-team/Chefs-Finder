@@ -133,7 +133,6 @@ app.controller('Customerpage',function($scope,$http){
 			headers: {'Content-Type': "application/json; charset = utf-8"},
 		}).then(function(response){
 			$scope.chefLocation=response.data
-			$scope.stateSearch = !$scope.stateSearch;
 			console.log($scope.chefLocation)
 			$scope.stateSearch = !$scope.stateSearch;
 			$scope.state = !$scope.state;
