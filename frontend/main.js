@@ -106,21 +106,26 @@ app.controller('Customerpage',function($scope,$http){
    $scope.chefsByMeal=[]
 
 	$scope.searchbymeal= function(){
-		
+		if($scope.mealSearch){
 		$http({
 			method: 'GET', 
 			url: "/chefs/"+$scope.mealSearch,
 			headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
-			$scope.chefsByMeal=response.data
-			console.log($scope.chefsByMeal)
+			if(response.data.length ==0){
+				$scope.msg="Sorry, search again! "
+				$scope.chefLocation=response.data
+			}else{
+			$scope.chefLocation=response.data
+			$scope.msg=""}
 		}).catch(function(err){
 			console.log("error")
-		})
+		})}
 	}
            
 
 	$scope.selectbar = function(){
+		
 		console.log($scope.location)
 		$http({
 			method: 'GET', 
@@ -167,4 +172,57 @@ app.controller('Customerpage',function($scope,$http){
 		})
 		
 	}
-})
+});
+
+app.directive('ngFiles', ['$parse', function ($parse) {
+
+	function fn_link(scope, element, attrs) {
+		var onChange = $parse(attrs.ngFiles);
+		element.on('change', function (event) {
+			onChange(scope, { $files: event.target.files });
+		});
+	};
+
+	return {
+		link: fn_link
+	}
+} ])
+
+
+
+.controller('Fup', function ($scope,$rootScope, $http) {
+
+	var formdata = new FormData();
+	$scope.getTheFiles = function ($files) {
+		angular.forEach($files, function (value, key) {
+			formdata.append(key, value);
+			console.log(key + ' ' + value.name);
+		});
+
+
+	};
+
+	// NOW UPLOAD THE FILES.
+	$scope.uploadFiles = function () {
+		 console.log($scope.$parent.username);
+
+		var request = {
+			method: 'POST',
+			url: '/fileupload/'+$scope.$parent.username,
+			data: formdata,
+			transformRequest: angular.identity,
+			withCredentials: true,
+			headers: {
+				'Content-Type': undefined
+			}
+
+		};
+
+		//SEND THE FILES.
+
+		$http(request)
+			.then(alert("uploaded") )
+
+
+	 }
+});

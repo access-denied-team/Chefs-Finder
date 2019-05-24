@@ -1,59 +1,146 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
 	<head>
-		<title>Etbo5li</title>
+		<title>Page Title</title>
+		
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
+    <!-- Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/menu_sideslide.css">
+    <!-- Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slide-style.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+		
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.1/css/mdb.min.css" rel="stylesheet">
+
 	</head>
-	<body>
-		<div ng-controller="Customerpage">
+	<body class="customers">
+		<div class="container" ng-controller="Customerpage">
+			<p class="h1"><img src="./etb5ly.png" alt=""></p>
+			<div ng-show="!stateSearch">
+					<form class="form-inline md-form mr-auto mb-4">
+							<input ng-model="location" class="form-control mr-sm-2" type="text" placeholder="Your Area" aria-label="Search">
+							<button id="danger" ng-click="selectbar()" class="btn btn-danger" type="submit">Search</button>
+						  </form>
 
-		  <div class="header" ng-hide="stateSearch"> 
 
-					<h1><center>Search By Location</center></h1>
-					<form class="cont">
-					  <input type="text" class="srchFld" placeholder="Please Enter Your Location" ng-model="location"/>
-						<button type="submit" class="srchBtn" ng-click="selectbar()">Search</button>
-						<!-- <input type="text" class="srchFld" placeholder="Please Enter Your Location" ng-model="mealSearch"/>
-						<button type="submit" class="srchBtn" ng-click="searchbymeal()">Search</button> -->
-					  <div class="entypo-search ico"></div>
-					</form>
-		  </div>
-		  <section class="content" ng-hide="stateList">
-				<div class="contact" ng-repeat="locat in chefLocation">
-				<div class="wrapr">
-						<span class="imgWrpr"><img src="{{locat.imgUrl}}" width="100" height="100"/></span>
-							<span class="contactInfo"> 
-							  <div class="name"  ng-click="chefinfo(locat.username)">
-							  <div>{{locat.username}}</div>
-							  <div>{{locat.phoneNumber}}</div>
-							  <div>{{locat.description}}</div>
-							  <div>{{locat.rating}}</div>
-							</span>
-	 			</div>		  
-				</div>
-			</section>
 			</div>
+			<div ng-show="state">
+				<form class="form-inline md-form mr-auto mb-4" ><div><input placeholder="Search For Tab5a"  class="form-control mr-sm-2" type="text" ng-model="mealSearch" > 
+					<button  id="danger2" class="btn btn-danger" ng-click="searchbymeal()">Search</button></div> </form>
+					 
+					<br>
+					<p style="font-size: 25px; margin-top:-5%" class="form-inline">{{msg}}</p>
+					<br>
+               
+				<div   class="container ">
+						<div  ng-repeat="locat in chefLocation" class="row justify-content-md-center ">
+							<div   class="col-lg-6 col-sm-6 ">
+					
+								<div class="card hovercard">
+									<div class="cardheader">
+		
+									</div>
+									<div class="avatar">
+										<img  alt="" src="https://thumbor.forbes.com/thumbor/1280x868/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F42977075%2F960x0.jpg%3Ffit%3Dscale">
+									</div>
+									<div class="info">
+										<div class="title">
+											<a target="_blank"  >{{locat.username}}</a>
+										</div>
+										<div class="desc">{{locat.description}}</div>
+						
+									</div>
+									<div class="bottom">
+											
+										<button ng-click="chefinfo(locat.username)" class="btn btn-danger btn-twitter btn-sm" >
+											Show More
+										</button>
+										
+										
+									</div>
+								</div>
+					
+							</div>
+					
+						</div>
+					</div>	
+			</div>
+			<div ng-show=stateinfo>
+				<section id="about" class="section-padding">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+								<img class="img-fluid" src="https://thumbor.forbes.com/thumbor/1280x868/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F42977075%2F960x0.jpg%3Ffit%3Dscale" alt="">
+							</div>
+						</div> 
+						<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+							<div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+								<h3>Hi Hungry!</h3>
+								<p>{{chefinformation[0].description}}</p>
+								<div class="about-profile">
+									<ul class="admin-profile">
+										<li><span class="pro-title"><b>Name:</b>  </span> <span class="pro-detail">{{chefinformation[0].username}}</span></li>
+										
+										
+										<li><span class="pro-title"><b>Location:</b>  </span> <span class="pro-detail">{{chefinformation[0].location}}</span></li>
+										
+									
+										<li><span class="pro-title"> <b>Phone:</b>  </span> <span class="pro-detail">{{chefinformation[0].phoneNumber}}</span></li>
+										
+									</ul>
+								</div>
+								
+								<a href="#" class="btn btn-danger"><i class="icon-speech"></i> Contact Me</a>
+							</div>
+						</div>   
+					</div>
+				</div>
+				<section id="services" class="services section-padding">
+					<h2 class="section-title wow flipInX" data-wow-delay="0.4s">Meals I did!</h2>
+					<div class="container">
+						<div class="row">
+							<!-- Services item -->
+							<div ng-repeat = "meal in mealinformation" class="col-md-6 col-lg-3 col-xs-12 meal-item">
+								<div class="services-item wow fadeInDown" data-wow-delay="0.3s">
+									<div class="icon">
+										<img class="meal" src="https://assets.parents.com/s3fs-public/styles/nfp_1080_portrait/public/hungry-child.jpg?s6wZccXb7b6.w4eFYtyCXQvuguCPhmsN" alt="">
+									</div>
+									<div class="services-content">
+										<h3><a href="#">{{meal.name}}</a></h3>
+										<p>{{meal.description}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- Services Section End -->
+			</section>
 
-			<div ng-hide="stateInfo">
-				<h2>
-
-					<img src="{{chefinformation[0].imgUrl}}" width="200" height="300"><br>
-					{{chefinformation[0].username}}<br>
-					{{chefinformation[0].phoneNumber}}<br>
-					{{chefinformation[0].description}}<br>
-					{{chefinformation[0].rating}}<br>
-				</h2>
-			<ol>
-				<li ng-repeat = "meal in mealinformation">
-					{{meal.name}} <br>
-					<span id="mealDesc">{{meal.description}}</span>
-				</li>
-			</ol>
 			</div>
 		</div>
-
-		
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 	</body>
