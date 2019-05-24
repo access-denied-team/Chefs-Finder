@@ -121,6 +121,7 @@ app.controller('Customerpage',function($scope,$http){
            
 
 	$scope.selectbar = function(){
+		
 		console.log($scope.location)
 		$http({
 			method: 'GET', 
