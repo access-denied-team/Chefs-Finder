@@ -168,4 +168,57 @@ app.controller('Customerpage',function($scope,$http){
 		})
 		
 	}
-})
+});
+
+app.directive('ngFiles', ['$parse', function ($parse) {
+
+	function fn_link(scope, element, attrs) {
+		var onChange = $parse(attrs.ngFiles);
+		element.on('change', function (event) {
+			onChange(scope, { $files: event.target.files });
+		});
+	};
+
+	return {
+		link: fn_link
+	}
+} ])
+
+
+
+.controller('Fup', function ($scope,$rootScope, $http) {
+
+	var formdata = new FormData();
+	$scope.getTheFiles = function ($files) {
+		angular.forEach($files, function (value, key) {
+			formdata.append(key, value);
+			console.log(key + ' ' + value.name);
+		});
+
+
+	};
+
+	// NOW UPLOAD THE FILES.
+	$scope.uploadFiles = function () {
+		 console.log($scope.$parent.username);
+
+		var request = {
+			method: 'POST',
+			url: '/fileupload/'+$scope.$parent.username,
+			data: formdata,
+			transformRequest: angular.identity,
+			withCredentials: true,
+			headers: {
+				'Content-Type': undefined
+			}
+
+		};
+
+		//SEND THE FILES.
+
+		$http(request)
+			.then(alert("uploaded") )
+
+
+	 }
+});
