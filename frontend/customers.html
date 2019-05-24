@@ -7,7 +7,9 @@
 	</head>
 	<body>
 		<div ng-controller="Customerpage">
+
 		  <div class="header" ng-hide="stateSearch"> 
+
 					<h1><center>Search By Location</center></h1>
 					<form class="cont">
 					  <input type="text" class="srchFld" placeholder="Please Enter Your Location" ng-model="location"/>
@@ -35,6 +37,7 @@
 
 			<div ng-hide="stateInfo">
 				<h2>
+
 					<img src="{{chefinformation[0].imgUrl}}" width="200" height="300"><br>
 					{{chefinformation[0].username}}<br>
 					{{chefinformation[0].phoneNumber}}<br>

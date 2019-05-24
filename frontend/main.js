@@ -130,13 +130,20 @@ app.controller('Customerpage',function($scope,$http){
 			$scope.chefLocation=response.data
 			$scope.stateSearch = !$scope.stateSearch;
 			console.log($scope.chefLocation)
+			$scope.stateSearch = !$scope.stateSearch;
+			$scope.state = !$scope.state;
+
 		}).catch(function(err){
 			console.log("error: " , err)
 		})
 	}
 	
 	$scope.chefinfo=function(name){
-		$scope.stateList = !$scope.stateList;
+
+		$scope.state = !$scope.state;
+
+		$scope.stateinfo = !$scope.stateinfo;
+
 		console.log(name)
 		$http({
 			method:"GET",
