@@ -1,6 +1,8 @@
 const db = require("../db/db.js");
 const bcrypt = require('bcrypt');
 const Sequelize = require("sequelize");
+const fs = require('fs');
+const formidable = require('formidable')
 
 // creates new chef
 
@@ -149,4 +151,24 @@ exports.deleteOneChef = function(req, res) { //done
 		             res.send(chefs)}
 		)
 		.catch(console.error)
+ }
+
+
+
+
+ exports.saveimage= function(req,res){ // save images of the chef in directory "uploads using formidable lib."
+  console.log(req.params.username)
+	var filesNames=[];var i=0;
+	var form =new formidable.IncomingForm().parse(req);
+
+      form.on('fileBegin', (name, file) => {
+          var path="frontend/images/";
+		file.path = path+req.params.username+"."+file.name.split(".")[1];
+		// console.log(__dirname);
+      })
+
+    .on('file', (name, file) => {
+    //   console.log('Uploaded file',file.name,file.type,file.path)  
+    })
+    //...
  }
