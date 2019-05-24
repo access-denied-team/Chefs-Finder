@@ -106,17 +106,21 @@ app.controller('Customerpage',function($scope,$http){
    $scope.chefsByMeal=[]
 
 	$scope.searchbymeal= function(){
-		
+		if($scope.mealSearch){
 		$http({
 			method: 'GET', 
 			url: "/chefs/"+$scope.mealSearch,
 			headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
-			$scope.chefsByMeal=response.data
-			console.log($scope.chefsByMeal)
+			if(response.data.length ==0){
+				$scope.msg="Sorry, search again! "
+				$scope.chefLocation=response.data
+			}else{
+			$scope.chefLocation=response.data
+			$scope.msg=""}
 		}).catch(function(err){
 			console.log("error")
-		})
+		})}
 	}
            
 
