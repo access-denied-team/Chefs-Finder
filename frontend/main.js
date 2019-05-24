@@ -65,6 +65,8 @@ app.controller("signup",function($scope,$http,$rootScope,Data){
 		headers: {'Content-Type': "application/json; charset = utf-8"}
 		}).then(function(response){
 			$scope.chefMeal.push(response.data);
+			$scope.newmeal = "";
+			$scope.desc = "";
 		}).catch(function(){
 			console.log("error in create meal")
 		})
@@ -132,7 +134,7 @@ app.controller('Customerpage',function($scope,$http){
 			url: '/location/'+$scope.location.toUpperCase(),
 			headers: {'Content-Type': "application/json; charset = utf-8"},
 		}).then(function(response){
-			$scope.chefLocation=response.data
+			$scope.chefLocation=response.data;
 			console.log($scope.chefLocation)
 			$scope.stateSearch = !$scope.stateSearch;
 			$scope.state = !$scope.state;

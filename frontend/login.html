@@ -47,7 +47,7 @@
 									<header id="about" class="bg-light">
 										<div class="row">
 											<div class="col-md-4 col-sm-5 col-xs-12 text-center">
-												<img src="{{chefName.imgUrl}}" class=" designer-pic img-fluid img-thumbnail rounded-circle" />
+												<img src="{{chefName.imgUrl}}" class="chef-img" />
 											</div>
 											<div id="about" class="col-md-8 col-sm-7 col-xs-12">
 												<h3 class="brand-font brand-text-lead">Hello my name is Chef {{chefName.username}}</h3>
@@ -57,46 +57,23 @@
 											</div>
 										</div>
 									</header>
+									<div class = "meal-input">
+										<h2>Post New Meal</h2>
+												<input type="text" placeholder="Meal Name" ng-model ="newmeal"/><br><br/>
+												<input type="text"  placeholder="Meal Description" ng-model ="desc"/><br><br/>	
+												<button ng-click="create()" id="createbtn">Post Meal</button><br>
+												<ol>
+										</div>
 									<section id="portfolio" class="bg-primary text-center ">
 										<div class="row">
 											<div class="col-md-12 col-sm-12 col-xs-12">
 												<h3 class="display-4 text-white pt-3"> Portfolio </h3>
 											</div>
 										</div>
-										<div class="row p-4">
-											<div class="col-md-4 col-sm-6 col-xs-12 pf-thumb">
-												<img src="//placehold.it/400x300" class="img-responsive img-thumbnail rounded" />
-											</div>
-											<div class="col-md-4 col-sm-6 col-xs-12  pf-thumb">
-												<img src="//placehold.it/400x300" class="img-responsive img-thumbnail rounded" />
-											</div>
-											<div class="col-md-4 col-sm-6 col-xs-12  pf-thumb">
-												<img src="//placehold.it/400x300" class="img-responsive img-thumbnail rounded" />
-										</div>
-										</div>
+										<ul>
+												<li ng-repeat="meal in chefMeal"><strong>{{meal.name}}</strong><br/>Made with: {{meal.description}}</li>
+											</ul>
 									</section>
-								
-									<section id="contact" class="mt-4 bg-contact text-white">
-										<div class="row text-center">
-									<h2>If you need any further information from me, please message me. I'll get back to you as soon as possible.</h2>
-									<div class="form-group">
-										<label for="message">Message</label>
-										<textarea class="form-control" id="message" placeholder="Enter your message here." rows="3"></textarea>
-									</div>
-										<button type="submit" class="btn btn-light float-right btn-lg">Submit</button>
-										 </div>
-									</section>
-					<!-- <img src="{{chefName.imgUrl}}" width="200" height="150">
-					<span>{{chefName.username}}</span><br/>
-					<span>{{chefName.location}}</span><br/>
-					<span>{{chefName.phoneNumber}}</span><br/>
-					<br/>
-					<input type="text" placeholder="Enter Your New Meal" ng-model ="newmeal"/>
-					<input type="text" placeholder="description" ng-model ="desc"/>
-					<button ng-click="create()" id="createbtn">New Meal</button><br>
-					<ol>
-						<li ng-repeat="meal in chefMeal">{{meal.name}}<br/> {{meal.description}}</li>
-					</ol> -->
 			</div>
 		</div>
 		<script type="text/javascript" src="angular.min.js"></script>
