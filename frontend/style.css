@@ -178,11 +178,6 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     margin-left: 25%;
 }
 
-
-
-
-
-
 .card {
     padding-top: 20px;
     margin: 10px 0 20px 0;
@@ -448,9 +443,22 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 }
 
 
+/* //////////////////// */
 
+/* Chef Profile css */
 
+.chef-img{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+    border-radius: 40%;
+}
 
+.meal-input{
+    margin-top:30px;
+    margin-bottom: 30px;
+}
 
 
 
