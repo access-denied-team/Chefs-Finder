@@ -21,7 +21,7 @@ const Chef = sequelize.define("chef", {
   phoneNumber: { type: Sequelize.INTEGER, required: true, unique: true },
   description: { type: Sequelize.STRING },
   rating: { type: Sequelize.INTEGER },
-  imgUrl: { type: Sequelize.STRING }
+  
 });
 
 const User = sequelize.define("user", {
