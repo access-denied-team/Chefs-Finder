@@ -2,9 +2,9 @@ const Sequelize = require("sequelize");
 
 // creates new connection
 
-const sequelize = new Sequelize("testing", "root", "1111", {
+const sequelize = new Sequelize("sql7293249", "sql7293249", "q2KcEheqdN", {
 
-  host: "localhost",
+  host: "sql7.freesqldatabase.com",
   dialect: "mysql"
 });
 
