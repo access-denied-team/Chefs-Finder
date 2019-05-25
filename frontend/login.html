@@ -5,11 +5,41 @@
 		<title>Etbo5li</title>
 		<link rel="stylesheet" href="style.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" >
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/font-awesome.min.css">
+    <!-- Icon -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/simple-line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
+    <!-- Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/menu_sideslide.css">
+    <!-- Slider CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slide-style.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+		
+		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.1/css/mdb.min.css" rel="stylesheet">
+
 	</head>
-	<body calss="ll">
+	<body>
 		<div ng-controller="signup">
-			<div class="container">
-					<div class="login-container-wrapper clearfix" ng-hide="state">
+				<p class="logo-login"><img src="./etb5ly.png" alt=""></p>
+			<div class="container" id ="margin">
+					<div class="login-container-wrapper clearfix" ng-hide="state" id = "login-page">
 						<div class="welcome"><strong>Welcome, please login</strong></div>
 			
 						<form class="form-horizontal login-form">
@@ -33,48 +63,67 @@
 				</div>
 
 			<div ng-show="state" id="hiddenlogin">
-					<nav id="topnav" class="navbar navbar-toggleable-sm navbar-inverse sticky-top bg-nav">
-
-							<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-							  <span class="navbar-toggler-icon"></span>
-							</button>
-						  
-							<ul class="navbar-nav mr-auto ">
-							  <a class="navbar-brand brand-font brand-text-nav" href="#">Chef {{chefName.username}}</a>
-							</ul>
-							</nav>
-							<div class="container-fluid">
-									<header id="about" class="bg-light">
-										<div class="row">
-											<div class="col-md-4 col-sm-5 col-xs-12 text-center">
-												<img src="{{chefName.imgUrl}}" class="chef-img" />
-											</div>
-											<div id="about" class="col-md-8 col-sm-7 col-xs-12">
-												<h3 class="brand-font brand-text-lead">Hello my name is Chef {{chefName.username}}</h3>
-												<h4 class="font-weight-normal text-muted">I am currently located in {{chefName.location}}</h4>
-												<hr class="sep">If you would like to reach me, please call {{chefName.phoneNumber}}</hr>
-												<p class="lead text-muted"></p>
-											</div>
+					<section id="about" class="section-padding">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class="img-thumb wow fadeInLeft" data-wow-delay="0.3s">
+											<img class="img-fluid" src='{{"./images/"+chefName.username+".jpg"}}' alt="">
 										</div>
-									</header>
-									<div class = "meal-input">
-										<h2>Post New Meal</h2>
-												<input type="text" placeholder="Meal Name" ng-model ="newmeal"/><br><br/>
-												<input type="text"  placeholder="Meal Description" ng-model ="desc"/><br><br/>	
-												<button ng-click="create()" id="createbtn">Post Meal</button><br>
-												<ol>
-										</div>
-									<section id="portfolio" class="bg-primary text-center ">
-										<div class="row">
-											<div class="col-md-12 col-sm-12 col-xs-12">
-												<h3 class="display-4 text-white pt-3"> Portfolio </h3>
+									</div> 
+									<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+										<div class="profile-wrapper wow fadeInRight" data-wow-delay="0.3s">
+											<h2><strong>Welcome!</strong></h2><strong>
+											<p>{{chefinformation[0].description}}</p>
+											<div class="about-profile">
+												<ul class="admin-profile">
+													<li><span class="pro-title"><b>Name:</b>  </span> <span class="pro-detail">{{chefName.username}}</span></li>
+													
+													
+													<li><span class="pro-title"><b>Location:</b>  </span> <span class="pro-detail">{{chefName.location}}</span></li>
+													
+												
+													<li><span class="pro-title"> <b>Phone:</b>  </span> <span class="pro-detail">{{chefName.phoneNumber}}</span></li>
+													
+												</ul>
 											</div>
+											<div class = "meal-input">
+													<form>
+													<h2>Post New Meal</h2>
+															<input type="text" placeholder="Meal Name" ng-model ="newmeal" required/><br><br/>
+															<textarea type="text"  placeholder="Meal Description" ng-model ="desc"></textarea><br><br/>	
+															<div   ng-controller="Fup1" class="form-group relative">
+																	<input type="file"  id="file1"  accept=".jpg" name="file" multiple ng-files="getTheFiles1($files)" class="form-control input-lg" placeholder=""  class="signuptext">
+																<input type="button" class="btn btn-danger" ng-click="uploadFiles1()" value="Upload"/>
+															</div>
+															<button class="btn btn-danger" ng-click="create()" id="createbtn">Post Meal</button><br>
+															<ol>
+													</form>
+													</div>	
 										</div>
-										<ul>
-												<li ng-repeat="meal in chefMeal"><strong>{{meal.name}}</strong><br/>Made with: {{meal.description}}</li>
-											</ul>
-									</section>
-			</div>
+									</div>   
+								</div>
+							</div>
+							</section>						
+			<section id="services" class="services section-padding">
+					<h2 class="section-title wow flipInX" data-wow-delay="0.4s">Posts</h2>
+					<div class="container">
+						<div class="row">
+							<!-- Services item -->
+							<div ng-repeat = "meal in chefMeal" class="col-md-6 col-lg-3 col-xs-12 meal-item">
+								<div class="services-item wow fadeInDown" data-wow-delay="0.3s">
+									<div class="icon">
+										<img class="meal" src='{{"./mealimages/"+chefName.username+"-"+meal.name+".jpg"}}' alt="">
+									</div>
+									<div class="services-content">
+										<h3><a href="#">{{meal.name}}</a></h3>
+										<p>{{meal.description}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 		</div>
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
