@@ -51,7 +51,9 @@ app.controller("signup",function($scope,$http,$rootScope,Data){
 					console.log('errrrrrrrrrrrrrrrrrrrrrr')
 				})
 		}).catch(function(){
-			window.location.href = 'profile.html';
+			alert('Username or Password is incorrect!')
+			$scope.username1 = "";
+			$scope.password1 = "";
 		})
 	}
 		$scope.create=function(){
