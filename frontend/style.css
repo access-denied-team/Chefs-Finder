@@ -35,7 +35,8 @@
 	position: relative;
 	text-align: center;
 	margin-bottom: 1em;
-	font-size: 50px;
+    font-size: 50px;
+    color: rgb(230, 243, 235);
 }
 
 #Customerbtn{
@@ -55,7 +56,7 @@
 	margin-top: 1em;
 	display: block;
 	width: 20em;
-	background-color:rgba(17, 50, 243, 0.25);
+	background-color:rgba(44, 74, 243, 0.25);
 	padding: 10px;
 	color: #fff;
 	border-radius: 20px;
@@ -68,6 +69,21 @@
 /* //////////////////// */
   
 /* Login && Signup page styling */
+
+#margin{
+    margin-top: -13%;
+}
+.logo-login{
+    margin-left: 31%;
+
+}
+
+
+#login-page{
+    background-image: url("https://cdn.hipwallpaper.com/i/0/68/OG1FLx.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .relative{
     position: relative;
@@ -105,7 +121,7 @@
     margin-left: 0;
 }
 .login input:focus + .fa{
-  color:#1d5256;
+  color:#1d5256; 
 }
 .login-form i{
     position: absolute;
@@ -162,8 +178,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 
 /* Customer page styling */
 
+.row{
+    margin-top: 10px;
+}
 
-
+#services{
+    margin-top: 50px;
+}
 
 /* ////////// */
 
