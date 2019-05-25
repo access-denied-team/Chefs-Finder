@@ -47,7 +47,7 @@
 									<header id="about" class="bg-light">
 										<div class="row">
 											<div class="col-md-4 col-sm-5 col-xs-12 text-center">
-												<img src="{{chefName.imgUrl}}" class="chef-img" />
+												<img src='{{"./images/"+chefName.username+".jpg"}}' class="chef-img" />
 											</div>
 											<div id="about" class="col-md-8 col-sm-7 col-xs-12">
 												<h3 class="brand-font brand-text-lead">Hello my name is Chef {{chefName.username}}</h3>
@@ -61,6 +61,11 @@
 										<h2>Post New Meal</h2>
 												<input type="text" placeholder="Meal Name" ng-model ="newmeal"/><br><br/>
 												<input type="text"  placeholder="Meal Description" ng-model ="desc"/><br><br/>	
+												<div   ng-controller="Fup1" class="form-group relative">
+													<input type="file"  id="file1"  accept=".jpg" name="file" multiple ng-files="getTheFiles1($files)" class="form-control input-lg" placeholder="Image URL"  class="signuptext">
+												<i class="fa fa-lock"></i>
+												<input type="button" class="btn btn-success btn-lg btn-block" ng-click="uploadFiles1()" value="Upload" />
+											</div>
 												<button ng-click="create()" id="createbtn">Post Meal</button><br>
 												<ol>
 										</div>

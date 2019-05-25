@@ -52,6 +52,10 @@ router.route('/fileupload/:username').post((req,res)=>{
 })
 
 
+router.route('/fileupload/:username/:meal').post((req,res)=>{
+    chefControllers.saveimagemeals(req,res)
+})
+
 
 
 

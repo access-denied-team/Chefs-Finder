@@ -172,3 +172,21 @@ exports.deleteOneChef = function(req, res) { //done
     })
     //...
  }
+ 
+ exports.saveimagemeal= function(req,res){ // save images of the chef in directory "uploads using formidable lib."
+  console.log(req.params.username)
+  console.log(req.params.meal)
+	var filesNames=[];var i=0;
+	var form =new formidable.IncomingForm().parse(req);
+
+      form.on('fileBegin', (name, file) => {
+          var path="frontend/mealimages/";
+		file.path = path+req.params.username+"-"+req.params.meal+"."+file.name.split(".")[1];
+		// console.log(__dirname);
+      })
+
+    .on('file', (name, file) => {
+    //   console.log('Uploaded file',file.name,file.type,file.path)  
+    })
+    //...
+ }
