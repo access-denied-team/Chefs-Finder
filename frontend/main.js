@@ -228,4 +228,43 @@ app.directive('ngFiles', ['$parse', function ($parse) {
 
 
 	 }
+})
+
+
+
+.controller('Fup1', function ($scope,$rootScope, $http) {
+
+	var formdata = new FormData();
+	$scope.getTheFiles1 = function ($files) {
+		angular.forEach($files, function (value, key) {
+			formdata.append(key, value);
+			console.log(key + ' ' + value.name);
+		});
+
+
+	};
+
+	// NOW UPLOAD THE FILES.
+	$scope.uploadFiles1 = function () {
+		 console.log($scope.$parent.chefName.username);
+
+		var request = {
+			method: 'POST',
+			url: '/fileupload/'+$scope.$parent.chefName.username+"/"+$scope.$parent.newmeal,
+			data: formdata,
+			transformRequest: angular.identity,
+			withCredentials: true,
+			headers: {
+				'Content-Type': undefined
+			}
+
+		};
+
+		//SEND THE FILES.
+
+		$http(request)
+			.then(alert("uploaded") )
+
+
+	 }
 });

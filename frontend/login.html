@@ -92,9 +92,9 @@
 													<h2>Post New Meal</h2>
 															<input type="text" placeholder="Meal Name" ng-model ="newmeal" required/><br><br/>
 															<textarea type="text"  placeholder="Meal Description" ng-model ="desc"></textarea><br><br/>	
-															<div   ng-controller="Fup" class="form-group relative">
-																	<input type="file"  id="file1"  accept=".jpg" name="file" multiple ng-files="getTheFiles($files)" class="form-control input-lg" placeholder=""  class="signuptext">
-																<input type="button" class="btn btn-danger" ng-click="uploadFiles()" value="Upload"/>
+															<div   ng-controller="Fup1" class="form-group relative">
+																	<input type="file"  id="file1"  accept=".jpg" name="file" multiple ng-files="getTheFiles1($files)" class="form-control input-lg" placeholder=""  class="signuptext">
+																<input type="button" class="btn btn-danger" ng-click="uploadFiles1()" value="Upload"/>
 															</div>
 															<button class="btn btn-danger" ng-click="create()" id="createbtn">Post Meal</button><br>
 															<ol>
@@ -113,7 +113,7 @@
 							<div ng-repeat = "meal in chefMeal" class="col-md-6 col-lg-3 col-xs-12 meal-item">
 								<div class="services-item wow fadeInDown" data-wow-delay="0.3s">
 									<div class="icon">
-										<img class="meal" src="https://assets.parents.com/s3fs-public/styles/nfp_1080_portrait/public/hungry-child.jpg?s6wZccXb7b6.w4eFYtyCXQvuguCPhmsN" alt="">
+										<img class="meal" src='{{"./mealimages/"+chefName.username+"-"+meal.name+".jpg"}}' alt="">
 									</div>
 									<div class="services-content">
 										<h3><a href="#">{{meal.name}}</a></h3>

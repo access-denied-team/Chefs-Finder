@@ -39,7 +39,7 @@
 			<p class="h1"><img src="./etb5ly.png" alt=""></p>
 			<div ng-show="!stateSearch">
 					<form class="form-inline md-form mr-auto mb-4">
-							<input ng-model="location" class="form-control mr-sm-2" type="text" placeholder="Your Area" aria-label="Search">
+							<input ng-model="location" class="form-control mr-sm-2" type="text" placeholder="Your Area" required aria-label="Search">
 							<button id="danger" ng-click="selectbar()" class="btn btn-danger" type="submit">Search</button>
 						  </form>
 
@@ -49,9 +49,9 @@
 				<form class="form-inline md-form mr-auto mb-4" ><div><input placeholder="Search For Tab5a"  class="form-control mr-sm-2" type="text" ng-model="mealSearch" > 
 					<button  id="danger2" class="btn btn-danger" ng-click="searchbymeal()">Search</button></div> </form>
 					 
-					<br>
+				
 					<p style="font-size: 25px; margin-top:-5%" class="form-inline">{{msg}}</p>
-					<br>
+				
                
 				<div   class="container ">
 						<div  ng-repeat="locat in chefLocation" class="row justify-content-md-center ">
@@ -62,7 +62,7 @@
 		
 									</div>
 									<div class="avatar">
-										<img  alt="" src="https://thumbor.forbes.com/thumbor/1280x868/https%3A%2F%2Fspecials-images.forbesimg.com%2Fdam%2Fimageserve%2F42977075%2F960x0.jpg%3Ffit%3Dscale">
+										<img  alt="" src='{{"./images/"+chefLocation[$index].username+".jpg"}}'>
 									</div>
 									<div class="info">
 										<div class="title">
@@ -86,7 +86,7 @@
 						</div>
 					</div>	
 			</div>
-			<div ng-show=stateinfo>
+			<div id="cos" ng-show=stateinfo>
 				<section id="about" class="section-padding">
 				<div class="container">
 					<div class="row">
@@ -125,7 +125,7 @@
 							<div ng-repeat = "meal in mealinformation" class="col-md-6 col-lg-3 col-xs-12 meal-item">
 								<div class="services-item wow fadeInDown" data-wow-delay="0.3s">
 									<div class="icon">
-										<img class="meal" src="https://assets.parents.com/s3fs-public/styles/nfp_1080_portrait/public/hungry-child.jpg?s6wZccXb7b6.w4eFYtyCXQvuguCPhmsN" alt="">
+										<img class="meal" src='{{"./mealimages/"+chefinformation[0].username+"-"+meal.name+".jpg"}}' alt="">
 									</div>
 									<div class="services-content">
 										<h3><a href="#">{{meal.name}}</a></h3>

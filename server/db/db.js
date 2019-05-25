@@ -2,9 +2,9 @@ const Sequelize = require("sequelize");
 
 // creates new connection
 
-const sequelize = new Sequelize("CHEFINDER", "root", "1111", {
+const sequelize = new Sequelize("sql7293249", "sql7293249", "q2KcEheqdN", {
 
-  host: "localhost",
+  host: "sql7.freesqldatabase.com",
   dialect: "mysql"
 });
 
@@ -21,7 +21,7 @@ const Chef = sequelize.define("chef", {
   phoneNumber: { type: Sequelize.INTEGER, required: true, unique: true },
   description: { type: Sequelize.STRING },
   rating: { type: Sequelize.INTEGER },
-  imgUrl: { type: Sequelize.STRING }
+  
 });
 
 const User = sequelize.define("user", {
