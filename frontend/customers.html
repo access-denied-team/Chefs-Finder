@@ -125,7 +125,7 @@
 							<div ng-repeat = "meal in mealinformation" class="col-md-6 col-lg-3 col-xs-12 meal-item">
 								<div class="services-item wow fadeInDown" data-wow-delay="0.3s">
 									<div class="icon">
-										<img class="meal" src="" alt="">
+										<img class="meal" src='{{"./mealimages/"+chefinformation[0].username+"-"+meal.name+".jpg"}}' alt="">
 									</div>
 									<div class="services-content">
 										<h3><a href="#">{{meal.name}}</a></h3>
