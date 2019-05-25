@@ -35,10 +35,11 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.1/css/mdb.min.css" rel="stylesheet">
 
 	</head>
-	<body calss="login">
+	<body>
 		<div ng-controller="signup">
-			<div class="container">
-					<div class="login-container-wrapper clearfix" ng-hide="state">
+				<p class="logo-login"><img src="./etb5ly.png" alt=""></p>
+			<div class="container" id ="margin">
+					<div class="login-container-wrapper clearfix" ng-hide="state" id = "login-page">
 						<div class="welcome"><strong>Welcome, please login</strong></div>
 			
 						<form class="form-horizontal login-form">
@@ -91,6 +92,10 @@
 													<h2>Post New Meal</h2>
 															<input type="text" placeholder="Meal Name" ng-model ="newmeal" required/><br><br/>
 															<textarea type="text"  placeholder="Meal Description" ng-model ="desc"></textarea><br><br/>	
+															<div   ng-controller="Fup" class="form-group relative">
+																	<input type="file"  id="file1"  accept=".jpg" name="file" multiple ng-files="getTheFiles($files)" class="form-control input-lg" placeholder=""  class="signuptext">
+																<input type="button" class="btn btn-danger" ng-click="uploadFiles()" value="Upload"/>
+															</div>
 															<button class="btn btn-danger" ng-click="create()" id="createbtn">Post Meal</button><br>
 															<ol>
 													</form>
