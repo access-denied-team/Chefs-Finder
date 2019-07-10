@@ -179,6 +179,13 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
 /* Customer page styling */
 
 .row{
+    margin-top: 10px;
+}
+
+#services{
+    margin-top: 50px;
+}
+
     margin-top: 90px;
 }
 
